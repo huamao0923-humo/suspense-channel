@@ -1,0 +1,12 @@
+{
+  "title": "假釋時序 · 2023–2025",
+  "footer": "時間軸示意圖 · 依公開假釋紀錄整理",
+  "showOnNarrIndex": [14],
+  "highlightIndex": 2,
+  "events": [
+    { "date": "2023/11", "label": "三人小組推薦" },
+    { "date": "2024/10", "label": "州委員會撤銷" },
+    { "date": "2025/2", "label": "再度駁回" },
+    { "date": "2028", "label": "下次資格" }
+  ]
+}

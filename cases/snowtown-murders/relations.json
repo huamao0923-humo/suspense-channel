@@ -1,0 +1,19 @@
+{
+  "title": "人物關係圖 · 信任的終點",
+  "footer": "關係示意圖 · 依法院判決／認罪整理 · 未定罪者標示「涉嫌」",
+  "showOnNarrIndex": [2],
+  "_note": "節點依旁白第 02 段順序排列，渲染時逐一浮現。layer=第幾層(0 在最上)，col=水平位置(可小數)。",
+  "nodes": [
+    { "id": "bunting",  "name": "John Bunting",    "tag": "已定罪 · 主謀",        "trait": "屠宰場工 ·「義警」自居", "layer": 0, "col": 1.5 },
+    { "id": "wagner",   "name": "Robert Wagner",   "tag": "已定罪 · 共犯",        "trait": "主要共犯",              "layer": 1, "col": 0.5 },
+    { "id": "vlassakis","name": "James Vlassakis", "tag": "認罪 · 共犯／星證人",  "trait": "受虐少年 · 認四項謀殺", "layer": 1, "col": 2.5 },
+    { "id": "youde",    "name": "Troy Youde",      "tag": "被害人",               "trait": "",                      "layer": 2, "col": 2 },
+    { "id": "johnson",  "name": "David Johnson",   "tag": "被害人",               "trait": "",                      "layer": 2, "col": 3 }
+  ],
+  "edges": [
+    { "from": "bunting",   "to": "wagner",    "label": "共犯" },
+    { "from": "bunting",   "to": "vlassakis", "label": "共犯" },
+    { "from": "vlassakis", "to": "youde",     "label": "同父異母兄" },
+    { "from": "vlassakis", "to": "johnson",   "label": "繼兄" }
+  ]
+}

@@ -1,0 +1,33 @@
+# ── 機密：絕不提交 ──
+.env
+.env.*
+
+# ── 渲染快取 / 可重生（不進 git）──
+tools/build/
+episodes/
+
+# ── 大型二進位（GitHub 100MB 硬限；成片與素材另行轉移，不進 git）──
+# 成片：保留 -credits.md / -real-manifest.md 文字記錄，排除影片與大圖
+web/media/**/*.mp4
+web/media/**/*.webm
+web/media/history/
+web/media/*.png
+# real-library 媒體檔：保留 MANIFEST.csv / seed.json / *.md 文字記錄，排除實際媒體
+assets/**/real-library/images/
+assets/**/real-library/video/
+assets/**/real-library/docs/
+assets/**/real-library/*.gif
+assets/**/real-library/*.tif
+
+# ── 一般雜項 ──
+**/__pycache__/
+node_modules/
+*.log
+.DS_Store
+Thumbs.db
+_backup/
+
+# 測試預覽 / 備份（垃圾，不進 git；保留 brand/assets/host-reference.png）
+web/media/_style-preview/
+brand/assets/*.bak.mp4
+brand/assets/D_animated_cartoon*.mp4

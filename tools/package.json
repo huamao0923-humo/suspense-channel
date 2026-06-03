@@ -1,0 +1,7 @@
+{
+  "name": "pilot-tools",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Pilot 調查員 — TTS 與 demo 影片合成工具"
+}

@@ -1,0 +1,91 @@
+{
+  "categories": [
+    "Peter Kürten",
+    "Düsseldorf in the 1920s",
+    "Düsseldorf in the 1930s",
+    "1929 in Düsseldorf",
+    "Weimar Republic",
+    "Police history of Germany",
+    "Bundesarchiv",
+    "Trial photographs"
+  ],
+  "queries": [
+    "Düsseldorf 1920s historic photographs Bundesarchiv",
+    "Peter Kürten mugshot 1930 Bundesarchiv",
+    "Weimar police Schutzpolizei archive 1920-1930",
+    "Düsseldorf Kaiserswerth 1929 Rhine",
+    "German serial killer trial 1931 court documents",
+    "Bundesarchiv Bild 102 Düsseldorf",
+    "1929 vampire case Düsseldorf newspaper",
+    "historic German police photographs Weimar era"
+  ],
+  "avoidTerms": [
+    "Rheinturm",
+    "Medienhafen",
+    "Kniebruck",
+    "construction",
+    "Ausgrabung",
+    "2010",
+    "2015",
+    "2020",
+    "2024",
+    "2018",
+    "2019",
+    "2021",
+    "2022",
+    "2023",
+    "moderne Architektur",
+    "contemporary buildings",
+    "modern skyline",
+    "shopping district",
+    "recently rebuilt",
+    "Glasfassade",
+    "glass facade",
+    "skyscraper",
+    "Hochhaus",
+    "U-Bahn",
+    "Stadtbahn",
+    "Straßenbahn modern",
+    "modern tram",
+    "Autobahn",
+    "neon",
+    "drone",
+    "Drohne",
+    "aerial modern",
+    "Königsallee modern",
+    "marathon",
+    "festival",
+    "Karneval",
+    "Rheinkirmes modern",
+    "color photo",
+    "Farbfoto",
+    "tourist"
+  ],
+  "institutions": [
+    {
+      "name": "Landesarchiv Nordrhein-Westfalen, Abteilung Rheinland",
+      "url": "https://www.archive.nrw.de/en/department-rhineland-duisburg",
+      "license": "Official government records (free access, photography allowed with prior review; high-resolution copies available via formal application)"
+    },
+    {
+      "name": "Bundesarchiv (German Federal Archives) — Bilddatenbank",
+      "url": "https://www.bild.bundesarchiv.de/dba/en/",
+      "license": "CC-BY-SA 3.0 Germany for Weimar-era photographs (245,000+ images); public domain materials"
+    },
+    {
+      "name": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/Category:Peter_K%C3%BCrten",
+      "license": "CC-BY-SA 3.0 Germany (Bundesarchiv donations); free for attribution"
+    },
+    {
+      "name": "Deutsche Fotothek, SLUB Dresden",
+      "url": "https://www.deutschefotothek.de/?locale=en_us",
+      "license": "CC-BY-SA 3.0 (requires attribution to SLUB Dresden or Deutsche Fotothek)"
+    },
+    {
+      "name": "Kunstpalast Düsseldorf — Photography Collection",
+      "url": "https://www.kunstpalast.de/en/programme/collection/the-photography-collection/",
+      "license": "需聯繫館方確認授權狀態（Educational licensing may be available）"
+    }
+  ]
+}

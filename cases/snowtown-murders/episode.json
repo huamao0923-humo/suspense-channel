@@ -1,0 +1,263 @@
+{
+  "channel": "Pilot 調查員",
+  "title": "雪鎮謀殺案（Snowtown Murders / Bodies in Barrels）",
+  "slug": "snowtown-murders",
+  "legalStatus": "已定讞（Bunting 11 項謀殺、Wagner 10 項謀殺，2003-09-08 定讞，2005-05 上訴駁回，均無假釋終身監禁；部分受害者死因法律上未定罪——見內文但書）",
+  "segments": [
+    {
+      "id": "HOST-01",
+      "kind": "host",
+      "heading": "Pilot · 調查員出鏡",
+      "hostFunction": "解說員 — 開場（背景＋帶入）",
+      "narration": "撥開迷霧，看見真相！ 大家好，我是 Pilot 調查員。今天的故事來自澳洲——一群被社會遺忘的人，在將近七年裡一個接一個消失，而沒有人敲響警鐘。 警方循一樁失蹤案找到答案，卻發現自己揭開的，遠比想像中更深。我們一步一步，拼湊出事情的全貌。現在，讓我們回到一九九二年那個冬末，南澳的阿得萊德北郊。",
+      "visual": [
+        "host"
+      ],
+      "imagePrompt": "解說員 Pilot 全螢幕定格出鏡（brand/assets/host-reference.png）"
+    },
+    {
+      "id": "00",
+      "kind": "narration",
+      "heading": "冷開場鉤子",
+      "narration": "南澳警方在一九九九年五月二十日，破開一間廢棄銀行的金庫。裡面一片漆黑。手電筒光束掃過—— 照出六個白色塑膠桶。大得足以裝下一台洗衣機。當蓋子被掀開，一股濃烈的化學氣味撲面而來。 桶裡，是鹽酸。鹽酸之中，浮著骨骼與布料的碎片。法醫花了數小時才確認：六個桶裡，總共八具人類遺體。但這還不是全部。 這不是一樁兇殺案的現場。這，是一條延續了將近七年的調查鏈，最深的那一層。而那八個人是誰、為什麼會躺在這裡——警方要花上更久，才能拼湊出答案。",
+      "narrIndex": 0,
+      "visual": [
+        "real-photo",
+        "illust"
+      ],
+      "imagePrompt": "cinematic documentary still, dark moody lighting, cold desaturated palette, film grain, shallow depth of field, realistic, investigative tone, 16:9 --ar 16:9 | interior of abandoned bank vault at night, opened metal door with evidence tags, white plastic containers lined up, flashlight beam cutting through darkness, forensic investigation scene, 1990s evidence preservation"
+    },
+    {
+      "id": "01",
+      "kind": "narration",
+      "heading": "兇手的輪廓",
+      "narration": "這個故事的中心，有一個人。他的名字是 John Bunting，被法院認定為本案的主謀。 他在屠宰場工作，每天與動物的屍體打交道。據法庭呈堂的證物，他在自己的住所裡，製作了一份名單。用紙條、用繩子，將一個個名字綁在一起。後來，這被稱為「岩石蜘蛛牆」。在那面牆上，他手寫記下那些他聲稱懷疑——是戀童癖、是同性戀者、是他眼中「該被清除」的人。他說，他在清理這個世界。 沒有人想到，這句話，會換來多少條人命。",
+      "narrIndex": 1,
+      "visual": [
+        "illust",
+        "chart"
+      ],
+      "imagePrompt": "cinematic documentary still, dark moody lighting, cold desaturated palette, film grain, shallow depth of field, realistic, investigative tone, 16:9 --ar 16:9 | faceless silhouette in profile against industrial building, backlit, hands visible on wooden wall with handwritten list, scratches and marks, 1990s gritty warehouse aesthetic, pale light bleeding through industrial window, anonymous killer archetype suggestion"
+    },
+    {
+      "id": "02",
+      "kind": "narration",
+      "heading": "第一個失蹤的人",
+      "narration": "一九九二年八月三十一日，一個名叫 Clinton Douglas Trezise 的年輕人，從撒利斯伯里消失了。二十歲。沒有固定的工作。沒有人每天確認他的下落。依法院認定的事實，他在一間住所裡被斧頭砸擊致命。但當時，沒人知道。 直到一九九四年，他的遺體，才在另一個地方——Lower Light——被人發現。中間，隔著兩年的沉默。沒人想到，他會是第一個。",
+      "narrIndex": 2,
+      "visual": [
+        "real-photo",
+        "illust"
+      ],
+      "imagePrompt": "cinematic documentary still, dark moody lighting, cold desaturated palette, film grain, shallow depth of field, realistic, investigative tone, 16:9 --ar 16:9 | 1992 newspaper clipping or police file photo, edge burn vignette, anonymous young male silhouette fading into black | transition to desolate outdoor location at dusk, abandoned lot with overgrown grass and standing water, forensic search area, cold overcast lighting, Australian rural/suburban setting"
+    },
+    {
+      "id": "03",
+      "kind": "narration",
+      "heading": "在這樣的地方，失蹤不會變成新聞",
+      "narration": "你能想像嗎？ 一個人從世界上消失，卻沒有人追問。這些後來被列入卷宗的受害者，有著共同的脆弱點。 孤立。缺乏穩定的生活支持。家人遠在他方、朋友稀少。在一九九○年代的南澳，在阿得萊德的邊陲，在像撒利斯伯里北區這樣的地方，一個人失蹤，不會上頭版新聞。沒有大規模搜救，沒有警方全力追捕。他們的名字，被遺忘得輕而易舉。從一九九二年，到一九九九年——整整七年。 一個接一個消失。卻始終沒有人，發現一個模式。沒有人，把這些失蹤案串在一起。在這樣的世界裡，消失，是悄無聲息的。",
+      "narrIndex": 3,
+      "visual": [
+        "video",
+        "real-photo"
+      ],
+      "imagePrompt": "cinematic documentary still, dark moody lighting, cold desaturated palette, film grain, shallow depth of field, realistic, investigative tone, 16:9 --ar 16:9 | seven-year timeline graphic with falling year cards 1992-1999, anonymous figures in long corridors, isolated social margins, pale institutional lighting, scattered case files and newspaper clippings in mist, text overlay callouts, anonymous silhouettes representing vulnerable populations, melancholic empty spaces"
+    },
+    {
+      "id": "HOST-中段-01",
+      "kind": "host",
+      "heading": "Pilot · 調查員出鏡",
+      "hostFunction": "解說員 — 轉場（輪廓 → 線索）",
+      "narration": "我們看清了這個世界的輪廓。 但問題來了——這些失蹤案，是怎麼一個接一個發生，而警方卻一直沒能把它們串起來？跟我繼續追下去。",
+      "visual": [
+        "host"
+      ],
+      "imagePrompt": "解說員 Pilot 全螢幕定格出鏡（brand/assets/host-reference.png）"
+    },
+    {
+      "id": "04",
+      "kind": "narration",
+      "heading": "被選中的人，都有共同點",
+      "narration": "當調查人員開始回頭追查，他們發現了一個令人不安的事實。被列入這份名單的人，並不是隨機的。Ray Davies，依法院認定，於一九九五年聖誕節被害，遺體後來在撒利斯伯里北區一處庭院被發現。Frederick Brooks，依法院認定於一九九八年九月被害，遺體在金庫的桶內被發現。Troy Youde，一九九八年被害。他，是其中一名共犯的同父異母兄弟。Gary O'Dwyer，一九九八年被害。他的遺體，同樣在桶裡。 每一個被列入名單的人，背後都有同一條看不見的線。",
+      "narrIndex": 4,
+      "visual": [
+        "chart",
+        "illust"
+      ],
+      "imagePrompt": "cinematic documentary still, dark moody lighting, cold desaturated palette, film grain, shallow depth of field, realistic, investigative tone, 16:9 --ar 16:9 | detective case board with four to five anonymous silhouette portraits connected by red investigative lines revealing hidden pattern, muted background of old filing cabinets and case folders, cold overhead lighting casting sharp shadows, interconnected network visualization, forensic analytical aesthetic, pins and string indicating victim connections"
+    },
+    {
+      "id": "05",
+      "kind": "narration",
+      "heading": "模式的細節",
+      "narration": "他們大多孤立。大多被社會邊緣化。而且—— 依法院採信的證詞，他們是被有計畫地甄選出來的。不是衝動，不是臨時起意。這不是一連串孤立的悲劇。 這，是一套被運作起來的機制。",
+      "narrIndex": 5,
+      "visual": [
+        "chart"
+      ],
+      "imagePrompt": "cinematic documentary still, dark moody lighting, cold desaturated palette, film grain, shallow depth of field, realistic, investigative tone, 16:9 --ar 16:9 | court case files and testimony documents scattered on wooden table, top-down overhead shot, forensic evidence logs, witness statement papers with pen marks, faint spotlight from above, cold institutional lighting, filing cabinets in soft focus background, grainy texture like old legal archive"
+    },
+    {
+      "id": "06",
+      "kind": "narration",
+      "heading": "金錢的線索（前半）",
+      "narration": "但還有另一條線。 一條金錢的線。一旦一個人死了，他就領不了社會福利金。他領不了養老金。戶頭裡的錢，就睡著了。除非——有人，繼續冒用他的身份。依法院認定，Bunting 與其同夥，用死者的名義，持續詐領社福與養老金。一個月一個月地領。一年一年地領。 總額，約九萬七千兩百澳元。金錢不是主因。但它是這套機制運作的一部分。死者在紙面上，繼續「活著」——像活人一樣，繼續領錢。",
+      "narrIndex": 6,
+      "visual": [
+        "illust",
+        "chart"
+      ],
+      "imagePrompt": "cinematic documentary still, dark moody lighting, cold desaturated palette, film grain, shallow depth of field, realistic, investigative tone, 16:9 --ar 16:9 | forged bank documents and welfare payment records close-up, typewritten cheques with altered signatures, financial fraud evidence table, pen pointing at falsified amounts, cold harsh lighting on paper texture, grayscale tones, archival photography style, austere institutional documents, no faces visible"
+    },
+    {
+      "id": "07",
+      "kind": "narration",
+      "heading": "金錢的線索（後半·未定罪但書）",
+      "narration": "受害帳戶之中，Suzanne Allen 的名字，涉及約一萬七千澳元；Gary O'Dwyer 的殘疾撫恤金，也被冒領。但這裡，必須說清楚一件事。關於 Suzanne Allen，執法單位曾經懷疑她遭到謀殺，但這項指控，後來因陪審團無法達成一致、證據不足，被檢方撤回。 換句話說，在法律上，從沒有人因她的死被定罪；她的確切死因，至今並未排除自然死亡的可能。我們只能說：執法單位曾經懷疑，但法院，沒有定罪。可以確定的是——死者領不了錢。所以，必須讓他們在紙面上，繼續活著。",
+      "narrIndex": 7,
+      "visual": [
+        "illust"
+      ],
+      "imagePrompt": "cinematic documentary still, dark moody lighting, cold desaturated palette, film grain, shallow depth of field, realistic, investigative tone, 16:9 --ar 16:9 | court verdict document and victim account ledger, names redacted and blurred for privacy, red circles marking fraud amounts, judicial verdict papers, cold institutional lighting on courthouse documents, empty courtroom benches in background, judge's gavel shadow on files, filing archive shelves, austere legal evidence presentation, no identifying details visible"
+    },
+    {
+      "id": "08",
+      "kind": "narration",
+      "heading": "散落各地的座標",
+      "narration": "把這些地點攤在一張地圖上，你會看見一種奇異的分散。 阿得萊德、撒利斯伯里、Lower Light，再到北方一百多公里外的雪鎮。線索散落各處，七年無人串起。直到那扇門被打開。",
+      "narrIndex": 8,
+      "visual": [
+        "map"
+      ],
+      "imagePrompt": "cinematic documentary still, dark moody lighting, cold desaturated palette, film grain, shallow depth of field, realistic, investigative tone, 16:9 --ar 16:9 | animated map of South Australia showing multiple crime locations marked with red dots: Adelaide, Salisbury, Lower Light, and Snowtown (100+ km north), connecting lines fade in and out, aerial map view, cold blue-grey tones, investigative markers, geographic evidence visualization, 1990s cartography style, minimal labels"
+    },
+    {
+      "id": "HOST-中段-02",
+      "kind": "host",
+      "heading": "Pilot · 調查員出鏡",
+      "hostFunction": "解說員 — 轉場（線索 → 發現）",
+      "narration": "將近七年，這一切都藏在光天化日之下。直到一九九九年，有人找到了那扇——本不該被打開的門。",
+      "visual": [
+        "host"
+      ],
+      "imagePrompt": "解說員 Pilot 全螢幕定格出鏡（brand/assets/host-reference.png）"
+    },
+    {
+      "id": "09",
+      "kind": "narration",
+      "heading": "最後一塊拼圖",
+      "narration": "一九九八年十一月二十日，一名女性被害。Elizabeth Haydon，三十七歲。她的失蹤——隔天被報案——引發了警方的追查。 那是一場起初看似不起眼的調查。但它，足以打破七年的沉默。一九九九年五月九日，在雪鎮，一個距離阿得萊德以北約一百四十公里的小農業鎮，有一棟廢棄的州立銀行建物。建物裡，有一個金庫。依法院認定，一名二十四歲的年輕人，David Johnson，在那裡被害；他，是其中一名共犯的繼兄。就在同一棟建築裡，秘密，已經堆積了好幾年。沒人知道，那扇金庫門後，是什麼。",
+      "narrIndex": 9,
+      "visual": [
+        "video",
+        "real-photo"
+      ],
+      "imagePrompt": "cinematic documentary still, dark moody lighting, cold desaturated palette, film grain, shallow depth of field, realistic, investigative tone, 16:9 --ar 16:9 | abandoned derelict bank building exterior, Snowtown rural town setting, weathered brick facade, boarded windows, overcast 1990s Australian country town street, faint light through cracks, eerie institutional structure, evidence discovery location, gritty small-town noir atmosphere, cool grays and blacks, forensic site photography style, anonymous location establishing"
+    },
+    {
+      "id": "10",
+      "kind": "narration",
+      "heading": "金庫之內 — 反轉點",
+      "narration": "一九九九年五月二十日。警方，破開了那扇門。六個白色塑膠桶。 八具浸在鹽酸裡的遺體。而在撒利斯伯里北區的一處庭院裡，還埋著另外兩具。一樁失蹤案的調查，在這一刻，變成了一場規模驚人的發現—— 跨越近七年、總計十二名受害者的連環殺人案。他們以為，自己在找一個失蹤的人。 他們找到的，是一場藏在光天化日下、持續了七年的獵殺。",
+      "narrIndex": 10,
+      "visual": [
+        "real-photo",
+        "illust"
+      ],
+      "imagePrompt": "cinematic documentary still, dark moody lighting, cold desaturated palette, film grain, shallow depth of field, realistic, investigative tone, 16:9 --ar 16:9 | police officer opening sealed door in abandoned industrial space at night, emergency flashlight beam, concrete floor, white plastic containers barely visible in shadow, evidence discovery moment, tension, no faces visible, faceless investigator"
+    },
+    {
+      "id": "11",
+      "kind": "narration",
+      "heading": "把幽靈變回人",
+      "narration": "那些在桶裡的遺體，身份，是怎麼確認的？牙科紀錄。骨骼上的 DNA 片段。法醫人類學的分析。 他們，一個接一個，被重新認了出來。每一個名字，都對應一個人。一個曾經活著的人。一個，有過人生的人。",
+      "narrIndex": 11,
+      "visual": [
+        "video",
+        "illust"
+      ],
+      "imagePrompt": "cinematic documentary still, dark moody lighting, cold desaturated palette, film grain, shallow depth of field, realistic, investigative tone, 16:9 --ar 16:9 | forensic identification sequence: dental records on white background, bone fragment with scale bar, DNA helix diagram, laboratory evidence table, overhead shot, clinical precision, blue/cyan accent lighting, scientific documentation, no human faces, abstract data visualization"
+    },
+    {
+      "id": "12",
+      "kind": "narration",
+      "heading": "法庭證據裡的那一頁（食人細節·依判決呈現）",
+      "narration": "在這起案件的法庭證據裡，有一頁內容，特別令人難以承受。依據二○○三年南澳最高法院 Justice Martin 的判決，以及關鍵證人 James Vlassakis 的證詞——其中一名受害者，David Johnson，遺體被切下一塊約十八公分見方的肉，烹煮後遭到食用。 事後，行為人還向友人謊稱，那是袋熊肉。我把它放在這裡，是因為它寫在判決書上。 這不是謠言，不是渲染——這是法庭認定的事實。八具遺體，十二個名字。 數字背後，是十二段被硬生生折斷的人生。",
+      "narrIndex": 12,
+      "visual": [
+        "illust"
+      ],
+      "imagePrompt": "cinematic documentary still, dark moody lighting, cold desaturated palette, film grain, shallow depth of field, realistic, investigative tone, 16:9 --ar 16:9 | Supreme Court judgment pages, legal document close-up, typewriter-style text, verdict on paper, judge's gavel soft-focused in background, evidence exhibit numbering, official court seal, forensic coldness, no victim imagery, abstract focus on justice system machinery, 1990s document aesthetic"
+    },
+    {
+      "id": "13",
+      "kind": "narration",
+      "heading": "動機之謎——自稱 vs. 法院認定（前半）",
+      "narration": "回到那個一開始就埋下的問題。Bunting 說，他在清理世界。他做了那面「岩石蜘蛛牆」，記下他聲稱該被清除的人的名字。這聽起來，像是一種信念。像是某種扭曲的、自封的「正義」。但在法庭上，事情，看起來完全不一樣。",
+      "narrIndex": 13,
+      "visual": [
+        "illust",
+        "chart"
+      ],
+      "imagePrompt": "cinematic documentary still, dark moody lighting, cold desaturated palette, film grain, shallow depth of field, realistic, investigative tone, 16:9 --ar 16:9 | South Australian Supreme Court interior, wooden courtroom architecture, witness stand with no visible individuals, judge's bench in shadow, fluorescent institutional lighting, legal system architecture, faceless justice space, 1990s-2000s Australian courtroom, somber tone"
+    },
+    {
+      "id": "14",
+      "kind": "narration",
+      "heading": "法院認定的真相（後半·反轉點）",
+      "narration": "二○○三年，南澳最高法院的 Justice Brian Martin，做出判決。 他認定，這些人，並不是出於什麼信念。判決中的用語是——他們「以快樂為目的，從事殺人這門生意」。而那些被詐領的金錢——約十萬澳元——在法院眼中，只是附隨的、次要的犯行。不是主要動機。真正的核心， 是施虐的快感。是狩獵本身，帶來的愉悅。 他說他在清理世界。法院說，他只是樂在其中。 那個更深的問題，仍然沒有答案——是什麼，讓一個普通人，變成了這樣？",
+      "narrIndex": 14,
+      "visual": [
+        "real-photo",
+        "illust"
+      ],
+      "imagePrompt": "cinematic documentary still, dark moody lighting, cold desaturated palette, film grain, shallow depth of field, realistic, investigative tone, 16:9 --ar 16:9 | Australian Supreme Court verdict moment, justice system judgment, legal text on screen, gavel striking, judge announcing sentence, silhouettes in courtroom gallery, dramatic institutional lighting, 2003 South Australian Supreme Court, judgment day, solemn verdict, no visible faces, faceless justice ceremony, verdict text excerpt visible"
+    },
+    {
+      "id": "15",
+      "kind": "narration",
+      "heading": "共犯與證人（前半）",
+      "narration": "而最後一層反轉，來自最靠近這一切的人。James Vlassakis。集團裡年紀最輕的一個。受害者 Troy Youde 的同父異母兄弟、David Johnson 的繼兄。他，就在裡面。他看過過程，他知道每一個秘密。二○○一年十二月六日，他認罪了——承認四宗謀殺。 隨後，他成為控方的星證人，詳述了集團如何運作、受害者如何被選中、遺體如何被棄置。法院認定，他的供詞，與物證相符。 最黑暗的秘密，往往只能由最靠近它的人，說出口。",
+      "narrIndex": 15,
+      "visual": [
+        "chart",
+        "illust"
+      ],
+      "imagePrompt": "cinematic documentary still, dark moody lighting, cold desaturated palette, film grain, shallow depth of field, realistic, investigative tone, 16:9 --ar 16:9. Scene: Anonymous silhouette in courtroom witness box, face obscured by shadow and backlighting, hands gripping wooden railing, formal court setting with dim overhead lights, prosecutor's desk in soft focus background, texture of old wooden bench visible, legal documents scattered on surface nearby, noir interrogation mood, no identifiable facial features."
+    },
+    {
+      "id": "16",
+      "kind": "narration",
+      "heading": "共犯與證人（後半·現狀）",
+      "narration": "另一名涉案者，Mark Haydon，被判協助犯罪等五項罪名成立——注意，不是謀殺。 他一九九九年五月被捕，二○○四年被判二十五年，最低十八年不得假釋。二○二四年四到五月間，他依假釋程序獲釋，進入社區監管。至於 Vlassakis——他，仍在監獄裡。 他的假釋曾在二○二五年一度獲得批准，但隨後遭行政覆核推翻；至最新報導，他依然在監。定罪的兩名主犯，John Bunting 與 Robert Wagner，則在二○○三年九月八日被判無假釋終身監禁，二○○五年五月上訴遭駁回，所有救濟途徑，已經窮盡。",
+      "narrIndex": 16,
+      "visual": [
+        "real-photo",
+        "chart"
+      ],
+      "imagePrompt": "cinematic documentary still, dark moody lighting, cold desaturated palette, film grain, shallow depth of field, realistic, investigative tone, 16:9 --ar 16:9. Scene: Official mugshot-style card layout with heavily pixelated/silhouetted faces (no identifiable features), printed on aged paper texture, handwritten dates and case numbers (1999-2004-2003), law enforcement document aesthetic, cold overhead fluorescent lighting, file stamp marks, courthouse archive setting, graphite and blue legal form borders, forensic evidence table with case files in background, austere monochromatic mood."
+    },
+    {
+      "id": "HOST-結尾",
+      "kind": "host",
+      "heading": "Pilot · 調查員出鏡",
+      "hostFunction": "解說員 — 結尾",
+      "narration": "二○○三年九月八日，南澳最高法院判定 John Bunting 十一項謀殺、Robert Wagner 十項謀殺，皆無假釋終身監禁。 這場審判，是南澳史上最長的一次——從二○○二年十月開庭，到二○○三年九月結案，將近十二個月。但在判決的背後，是十二個生前無人聞問、死後才被看見的人。願我們記得的，是他們的名字。而不只是，那些桶。我是 Pilot，我們，下一個案子見。",
+      "visual": [
+        "host"
+      ],
+      "imagePrompt": "解說員 Pilot 全螢幕定格出鏡（brand/assets/host-reference.png）"
+    }
+  ],
+  "intro": {
+    "dateLines": [
+      "一九九二年 八月",
+      "南澳大利亞，撒利斯伯里（Salisbury, South Australia）"
+    ]
+  },
+  "ending": {
+    "question": "一個普通的屠宰場工人，是如何一步步，變成一個系統性的獵人？而在那將近七年裡——為什麼，始終沒有一個人，站出來說一句「停下來」？",
+    "realFootage": true,
+    "credits": "謹以本片，紀念在這起案件中失去生命的每一個人。感謝你陪我們，走完這一段。資料來源已列於說明欄；願逝者安息，願這樣的沉默，不再發生。"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "title": "案件關係圖 · 杜塞道夫 1929（依 1931 法院認定整理）",
+  "footer": "關係示意圖 · 依公開判決與權威來源整理；受害者僅列代表，1929 案件共 9 死。人名拼寫依查核稿校正。",
+  "showOnNarrIndex": [12],
+  "nodes": [
+    { "id": "kurten", "name": "彼得·庫爾滕", "tag": "已定讞", "trait": "1931/4/22 判 9 謀殺・7 謀殺未遂", "layer": 0, "col": 1.5 },
+    { "id": "kuhn", "name": "阿波羅尼亞·庫恩", "tag": "被害（倖存）", "trait": "1929/2/3 遇襲生還・報警", "layer": 1, "col": 0 },
+    { "id": "ohliger", "name": "羅莎·歐萊格", "tag": "被害", "trait": "約 8–9 歲・1929/2", "layer": 1, "col": 1 },
+    { "id": "scheer", "name": "魯道夫·謝爾", "tag": "被害", "trait": "45 歲・1929/2/13", "layer": 1, "col": 2 },
+    { "id": "albermann", "name": "葛楚德·阿爾貝曼", "tag": "被害", "trait": "5 歲・1929/11/7", "layer": 1, "col": 3 },
+    { "id": "berg", "name": "卡爾·伯格（法醫）", "tag": "鑑定·證人", "trait": "心理評估・著《The Sadist》1932", "layer": 2, "col": 0.5 },
+    { "id": "court", "name": "杜塞道夫法院", "tag": "法院", "trait": "1931/4/22 判決確定", "layer": 2, "col": 2.5 }
+  ],
+  "edges": [
+    { "from": "kurten", "to": "kuhn", "label": "謀殺未遂（認定）" },
+    { "from": "kurten", "to": "ohliger", "label": "謀殺（認定）" },
+    { "from": "kurten", "to": "scheer", "label": "謀殺（認定）" },
+    { "from": "kurten", "to": "albermann", "label": "謀殺（認定）" },
+    { "from": "berg", "to": "kurten", "label": "心理評估" },
+    { "from": "court", "to": "kurten", "label": "判決定讞" }
+  ]
+}

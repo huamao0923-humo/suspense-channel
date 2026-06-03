@@ -1,0 +1,11 @@
+{
+  "_note": "real-sourcing 種子：dana-ireland（1991 夏威夷大島）。無案件專屬 Commons 分類，靠案發地/設施場景的真實素材；人物/DNA 抽象段續用 AI 示意。供 tools/real-picker.mjs 使用。",
+  "categories": [],
+  "queries": [
+    "Kapoho Hawaii", "Puna coast Hawaii", "Big Island Hawaii landscape",
+    "Pacific ocean Hawaii coast", "Hilo Hawaii", "Hilo courthouse Hawaii",
+    "Hawaii court building", "prison exterior building", "prison cell corridor",
+    "forensic DNA laboratory", "crime lab equipment"
+  ],
+  "institutions": []
+}

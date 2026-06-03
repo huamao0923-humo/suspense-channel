@@ -1,0 +1,61 @@
+{
+  "categories": [
+    "Cold cases - unsolved murders",
+    "Murder convictions - California",
+    "DNA evidence - bite mark analysis",
+    "Law enforcement misconduct",
+    "Los Angeles Police Department",
+    "Homicide investigations",
+    "Trial coverage - United States",
+    "Court records - public access",
+    "1986 crimes"
+  ],
+  "queries": [
+    "Stephanie Lazarus murder 1986 2012 conviction DNA evidence",
+    "Sherri Rasmussen cold case LAPD Detective bite mark",
+    "Los Angeles police detective murder trial 2012 February evidence",
+    "Van Nuys 1986 homicide unsolved cold case breakthrough DNA",
+    "Stephanie Lazarus interrogation June 2009 June 5 arrest",
+    "DNA bite mark Sherri Rasmussen 1986 case reopen 2008 2009",
+    "People v. Lazarus California court appeal 2015 conviction affirmed",
+    "LAPD 1986 crime scene investigation negligence cold case institutional failure"
+  ],
+  "avoidTerms": [
+    "2025",
+    "2024",
+    "2023",
+    "parole hearing recent",
+    "modern Los Angeles landmarks",
+    "contemporary development",
+    "recent LAPD reform",
+    "current detective",
+    "2020s",
+    "2010s news archives",
+    "California Institution for Women Corona current",
+    "mugshot modern",
+    "identification photographic modern",
+    "contemporary street view"
+  ],
+  "institutions": [
+    {
+      "name": "Los Angeles Superior Court - Central District",
+      "url": "https://www.lacourt.ca.gov/pages/lp/access-a-case",
+      "license": "Public Access (California Court Records Act)"
+    },
+    {
+      "name": "LAPD Online - Newsroom & Historical Records",
+      "url": "https://www.lapdonline.org/",
+      "license": "Public Domain (City of Los Angeles government)"
+    },
+    {
+      "name": "California Court of Appeal - Decisions",
+      "url": "https://courts.ca.gov/",
+      "license": "Public Domain (State court decisions)"
+    },
+    {
+      "name": "ABC7 Los Angeles News Archive",
+      "url": "https://abc7.com/archive/",
+      "license": "News Fair Use (journalistic public interest)"
+    }
+  ]
+}

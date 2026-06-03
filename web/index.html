@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Pilot 調查員 — 製作工作台</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <div class="brand">
+    <h1>Pilot 調查員</h1>
+    <span class="tag">撥開迷霧，領航真相。</span>
+    <span id="conn" class="conn">…</span>
+  </div>
+  <div class="sub">製作工作台 · 一次編一集：上方切換流程，下方是該流程的工作區</div>
+
+  <div class="cockpitbar">
+    <label class="casepick">🎬 編輯中：<select id="caseSel"></select></label>
+    <nav id="stagebar" class="stagebar"></nav>
+  </div>
+
+  <!-- 選題 / 投稿（pick 流程的工作區；含輸入框故用靜態 HTML，避免自動刷新清空）-->
+  <section id="panel-pick" class="panel">
+    <h2 class="sec">選題庫 · Topic Library <span id="topicCount" class="cnt"></span></h2>
+    <div class="toolbar">
+      <label><input type="checkbox" id="onlySel"> 只看已勾選</label>
+      <span class="hint">勾選＝把題目加入上方「編輯中」清單（關卡1），再切到「研究」開工。</span>
+    </div>
+    <div id="topics" class="tablewrap"></div>
+
+    <h2 class="sec">自訂投稿 · Custom Intake</h2>
+    <div class="intake">
+      <input id="inTitle" type="text" placeholder="題目（例：Black Dahlia 謀殺案 — 建議含英文以利自動建檔）">
+      <textarea id="inMaterials" rows="4" placeholder="貼上素材：相關連結（每行一個）、背景文字、線索…送出後切到「研究」按執行，Claude 會讀取並爬取連結再研究。"></textarea>
+      <div class="intakebar">
+        <button id="inBtn" class="btn">＋ 建立案件（投稿）</button>
+        <span class="hint">送出＝存成 <code>cases/&lt;slug&gt;/intake.md</code> 並設為編輯中案件。</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 其他流程的工作區 -->
+  <section id="workspace"></section>
+
+  <p class="note">
+    工作台由 <code>node tools/serve.mjs</code> 提供即時資料與動作。研究/編排/腳本/製作包＝呼叫 Claude 背景執行（即時活動會顯示在工作區）；
+    產生資料/渲染＝本機 Node。未連伺服器時為唯讀靜態模式（<code>episodes.js</code>）。
+  </p>
+
+</div>
+
+<div id="toast" class="toast hidden"></div>
+
+<script src="episodes.js"></script>
+<script src="cockpit.js"></script>
+</body>
+</html>

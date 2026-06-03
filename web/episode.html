@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>動態分鏡 Demo — Pilot 調查員</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top">
+    <div class="brand" style="border:none;margin:0;padding:0">
+      <h1 style="font-size:22px">Pilot 調查員</h1>
+      <span class="tag">動態分鏡 Demo</span>
+    </div>
+    <a class="btn ghost" href="index.html">← 回主控台</a>
+  </div>
+
+  <h2 class="sec" style="margin-top:18px" id="epTitle">載入中…</h2>
+  <div class="legal" id="epLegal"></div>
+
+  <section style="margin-top:16px">
+    <h2 class="sec">成片預覽（合成影片 · Zhiwei 男聲）</h2>
+    <video id="epVideo" controls preload="metadata" style="width:100%;border:1px solid #243343;border-radius:12px;background:#000;display:block">
+      你的瀏覽器不支援影片播放，請直接開啟 media/ 下的合成影片。
+    </video>
+    <p style="font-size:12px;color:#5d6b7d;margin:8px 0 0">
+      約 18 分鐘整集動態分鏡：Microsoft Zhiwei 男聲旁白（沉穩、語速 0.84 / 音高 0.9）＋燒錄字幕＋逐段標題，由 <code>tools/make-demo.mjs</code> 離線合成。
+      背景為暫定底，正式版替換為 AI 算圖／公共領域素材（見 <code>assets/</code>）。正式配音可換 VoAI／Fish Audio 取得更磁性的音色。
+    </p>
+  </section>
+
+  <h2 class="sec">互動式分鏡（可挑段落、即時換語音）</h2>
+  <div class="banner">
+    下方為 <b>互動 animatic</b>：用瀏覽器內建中文語音逐句朗讀、可挑段落與調語速。建議用 Chrome／Edge 開啟。
+  </div>
+
+  <div class="player">
+    <div class="stage">
+      <div class="canvas">
+        <div class="seghead" id="segHead"></div>
+        <div class="idx" id="segIdx"></div>
+        <div class="ph">
+          <div class="lbl">AI 生成圖示意 · IMAGE PROMPT</div>
+          <div class="pr" id="segPrompt"></div>
+        </div>
+        <div class="vig"></div>
+      </div>
+      <div class="narr" id="narr"></div>
+      <div class="progress"><div class="bar" id="bar"></div></div>
+      <div class="controls">
+        <button id="prev">⏮</button>
+        <button class="play" id="play">▶ 播放</button>
+        <button id="next">⏭</button>
+        <span class="grow"></span>
+        <label>語音</label>
+        <select id="voice"></select>
+        <label>語速 <span id="rateVal">0.9</span></label>
+        <input type="range" id="rate" min="0.6" max="1.2" step="0.05" value="0.9">
+      </div>
+    </div>
+
+    <div class="side">
+      <h4>段落 / 章節</h4>
+      <div id="segList"></div>
+    </div>
+  </div>
+
+</div>
+
+<script src="episodes.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

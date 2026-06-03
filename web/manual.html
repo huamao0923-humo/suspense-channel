@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>貼圖台 · 手動補圖（Plan B）</title>
+<style>
+  :root { color-scheme: dark; }
+  body { margin: 0; padding: 24px; background: #0c1118; color: #d7e0ea; font: 15px/1.6 "Microsoft JhengHei", system-ui, sans-serif; }
+  h1 { font-size: 22px; margin: 0 0 6px; }
+  .hint { color: #8295a8; margin: 0 0 18px; max-width: 760px; }
+  .hint code { color: #9fc7ee; }
+  label { color: #aab8c8; }
+  select { background: #16202c; color: #e6eef7; border: 1px solid #2a3a4d; border-radius: 8px; padding: 8px 12px; font-size: 15px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin-top: 20px; }
+  .card { background: #121b26; border: 1px solid #223040; border-radius: 12px; padding: 14px; }
+  .hd { font-weight: 600; color: #cfe0f1; margin-bottom: 10px; min-height: 44px; }
+  .hd .n { color: #6f8aa6; margin-right: 6px; }
+  .thumb { width: 100%; aspect-ratio: 16/9; object-fit: cover; border-radius: 8px; background: #0a0f15; display: block; }
+  .empty { width: 100%; aspect-ratio: 16/9; border-radius: 8px; background: #0a0f15; display: flex; align-items: center; justify-content: center; color: #44566a; border: 1px dashed #2a3a4d; }
+  .drop { margin-top: 10px; padding: 12px; text-align: center; border: 1px dashed #34506e; border-radius: 8px; color: #8fb6df; cursor: pointer; user-select: none; transition: .15s; font-size: 14px; }
+  .drop:hover, .drop.over { background: #15293c; border-color: #4f86c0; color: #cfe6ff; }
+  .badge { display: inline-block; font-size: 12px; color: #1c2a14; background: #9fd07a; border-radius: 6px; padding: 1px 8px; margin-left: 8px; }
+</style>
+</head>
+<body>
+  <h1>貼圖台 — 手動補圖（Plan B）</h1>
+  <p class="hint">
+    沒有素材的鏡頭，把你在 GPT（或任何地方）生的圖拖進對應鏡頭即可。圖會存進
+    <code>cases/&lt;slug&gt;/production/manual/</code>，下次跑 <code>node tools/make-demo.mjs --slug &lt;slug&gt;</code>
+    時<strong>最高優先採用、蓋過所有自動來源</strong>，並自動套 Ken Burns 推拉鏡與「示意圖」標示。<br>
+    每段這裡上傳的是主畫面（槽位 0）；若一段要多張，可手動再放 <code>sN_1.png</code>、<code>sN_2.png</code>…
+  </p>
+
+  <label>案件：<select id="slug"></select></label>
+  <div class="grid" id="shots"></div>
+
+  <script src="/episodes.js"></script>
+  <script>
+    const sel = document.getElementById('slug');
+    const cases = (window.CASES || []).filter(c => c.hasEpisode);
+    for (const c of cases) { const o = document.createElement('option'); o.value = c.slug; o.textContent = c.title || c.slug; sel.appendChild(o); }
+    sel.onchange = load;
+
+    async function load() {
+      const slug = sel.value; const box = document.getElementById('shots'); box.innerHTML = '載入中…';
+      const r = await fetch('/api/shots/' + slug);
+      if (!r.ok) { box.innerHTML = '讀取失敗：' + (await r.text()); return; }
+      const d = await r.json();
+      box.innerHTML = '';
+      for (const sh of d.shots) {
+        const card = document.createElement('div'); card.className = 'card';
+        const has = sh.manual && sh.manual.length;
+        const cur = has
+          ? `<img class="thumb" src="/api/manual/${slug}/${sh.manual[0]}?t=${Date.now()}">`
+          : `<div class="empty">尚無手動圖</div>`;
+        card.innerHTML =
+          `<div class="hd"><span class="n">#${sh.n}</span>${sh.heading}${has ? '<span class="badge">已貼</span>' : ''}</div>` +
+          cur +
+          `<div class="drop">拖放或點此選圖／影片（存為 s${sh.n}_0）</div>`;
+        const drop = card.querySelector('.drop');
+        drop.onclick = () => pick(slug, sh.n);
+        drop.ondragover = e => { e.preventDefault(); drop.classList.add('over'); };
+        drop.ondragleave = () => drop.classList.remove('over');
+        drop.ondrop = e => { e.preventDefault(); drop.classList.remove('over'); if (e.dataTransfer.files[0]) up(slug, sh.n, e.dataTransfer.files[0]); };
+        box.appendChild(card);
+      }
+    }
+    function pick(slug, n) {
+      const i = document.createElement('input'); i.type = 'file'; i.accept = 'image/*,video/mp4,video/webm';
+      i.onchange = () => i.files[0] && up(slug, n, i.files[0]); i.click();
+    }
+    async function up(slug, n, file) {
+      const r = await fetch('/api/manual/' + slug + '/s' + n + '_0', { method: 'POST', headers: { 'Content-Type': file.type || 'image/png' }, body: file });
+      if (r.ok) load(); else alert('上傳失敗：' + (await r.text()));
+    }
+    if (cases.length) load();
+  </script>
+</body>
+</html>

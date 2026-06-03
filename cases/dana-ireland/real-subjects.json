@@ -1,0 +1,10 @@
+{
+  "_note": "依旁白段 narrIndex 指定『真實場景/地點/物件/檔案』搜尋詞（Wikimedia Commons，PD/CC，無真人臉）。人物/DNA抽象段不列，續用 AI 示意。",
+  "0": ["Kapoho Hawaii", "Puna coast Hawaii road"],
+  "10": ["prison cell corridor", "prison exterior building"],
+  "12": ["forensic DNA laboratory", "crime lab equipment"],
+  "13": ["Hilo Hawaii courthouse", "Hawaii court building"],
+  "17": ["Hawaii Big Island coast", "Puna Hawaii landscape"],
+  "18": ["Hawaii courtroom", "Hilo Federal Building"],
+  "20": ["Big Island Hawaii landscape", "Pacific ocean Hawaii"]
+}

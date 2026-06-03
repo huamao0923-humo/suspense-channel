@@ -1,0 +1,20 @@
+{
+  "title": "案件關係圖 · Rasmussen 命案（依 2012 法院認定整理）",
+  "footer": "關係示意圖 · 依公開判決與權威報導整理；未涉案第三人僅就事實相關提及，不擴及隱私。",
+  "showOnNarrIndex": [10],
+  "nodes": [
+    { "id": "lazarus", "name": "Stephanie Lazarus", "tag": "已定讞", "trait": "2012 一級謀殺定讞・27年至無期", "layer": 0, "col": 1.5 },
+    { "id": "sherri", "name": "Sherri Rasmussen", "tag": "被害", "trait": "護理督導・1986 遇害・29 歲", "layer": 1, "col": 0 },
+    { "id": "ruetten", "name": "John Ruetten", "tag": "關係人", "trait": "被害人丈夫・庭審證人", "layer": 1, "col": 1.5 },
+    { "id": "nels", "name": "Nels Rasmussen", "tag": "關係人", "trait": "被害人父親・最早向警方指認", "layer": 1, "col": 3 },
+    { "id": "court", "name": "洛杉磯法院", "tag": "法院", "trait": "2012 陪審團裁定一級謀殺", "layer": 2, "col": 0.5 },
+    { "id": "francis", "name": "Jennifer Francis（法醫）", "tag": "鑑定·證人", "trait": "咬痕 DNA 比對作證", "layer": 2, "col": 2.5 }
+  ],
+  "edges": [
+    { "from": "lazarus", "to": "sherri", "label": "謀殺（已認定）" },
+    { "from": "lazarus", "to": "ruetten", "label": "UCLA 舊識" },
+    { "from": "nels", "to": "lazarus", "label": "向警方指認" },
+    { "from": "court", "to": "lazarus", "label": "2012 定讞" },
+    { "from": "francis", "to": "lazarus", "label": "咬痕 DNA 比中" }
+  ]
+}

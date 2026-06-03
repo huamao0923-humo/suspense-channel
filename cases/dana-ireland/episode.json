@@ -1,0 +1,306 @@
+{
+  "channel": "Pilot 調查員",
+  "title": "達娜·愛爾蘭謀殺案（Dana Ireland）",
+  "slug": "dana-ireland",
+  "legalStatus": "**未解 / 已平反**——三名被告之定罪均已撤銷、平反；DNA 相符之嫌疑人未被逮捕、未被起訴謀殺、未經審判定罪，且已身亡，本案司法上仍未終結。",
+  "segments": [
+    {
+      "id": "HOST-01",
+      "kind": "host",
+      "heading": "Pilot · 調查員出鏡",
+      "hostFunction": "解說員 — 開場（背景＋帶入）",
+      "narration": "撥開迷霧，看見真相！大家好，我是 Pilot 調查員。今晚這樁案子，有一份從不說謊的 DNA、三個被它證明清白、卻仍坐了逾二十年牢的人，還有一個始終無法走進法庭的名字。現在，讓我們回到一九九一年那個聖誕。",
+      "visual": [
+        "host"
+      ],
+      "imagePrompt": "解說員 Pilot 全螢幕定格出鏡（brand/assets/host-reference.png）"
+    },
+    {
+      "id": "01",
+      "kind": "narration",
+      "heading": "聖誕夜的現場",
+      "narration": "一九九一年的聖誕夜，一名來自維吉尼亞州的女子，在騎自行車時失蹤了。她叫達娜·瑪麗·愛爾蘭，二十三歲，來自費爾法克斯郡。在夏威夷探親期間，她在卡波荷那條偏遠的漁路上騎自行車。隔天，警方在那一帶發現了她。據警方與多家信譽媒體記載，她受到襲擊與性侵，傷勢嚴重。她被送往希洛醫療中心。一九九一年十二月二十五日凌晨，她因大量失血與多重創傷被宣告死亡。年僅二十三歲。",
+      "narrIndex": 0,
+      "visual": [
+        "video",
+        "real-photo"
+      ],
+      "imagePrompt": null
+    },
+    {
+      "id": "02",
+      "kind": "narration",
+      "heading": "一份不會說謊的證據",
+      "narration": "但現場留下了一個東西。 一名未知男性的 DNA。警方握有這份 DNA。它採自被害人的遺體、運送她的擔架床單、以及現場的一件 T 恤。微觀的、不會說謊的、當時唯一的一條硬線索。問題是————它屬於誰？",
+      "narrIndex": 1,
+      "visual": [
+        "illust"
+      ],
+      "imagePrompt": "cinematic documentary still, dark moody lighting, cold desaturated palette, film grain, shallow depth of field, realistic, investigative tone, 16:9 --ar 16:9, 1990s American suburban street at Christmas night, overturned bicycle on sidewalk, police car with blue lights reflected on wet pavement, yellow and black police tape, empty road, ominous winter atmosphere, no people visible"
+    },
+    {
+      "id": "03",
+      "kind": "narration",
+      "heading": "一個會跟著你到最後的問題",
+      "narration": "請你先記住這個問題。因為接下來的三十多年裡，這份 DNA 會一次又一次回到桌面上。它會證明清白，也會指向一個名字。而每一次，它都在問同一句話——它，到底屬於誰？ 警方握有一份 DNA。問題是，它屬於誰。",
+      "narrIndex": 2,
+      "visual": [
+        "chart",
+        "illust"
+      ],
+      "imagePrompt": "cinematic documentary still, dark moody lighting, cold desaturated palette, film grain, shallow depth of field, realistic, investigative tone, 16:9 --ar 16:9, forensic laboratory, evidence table with DNA sample labels on old evidence bags, magnifying glass catching cold light, microscopic fiber details, case files stacked in background, top-down composition, 1990s forensic investigation equipment, no human faces visible"
+    },
+    {
+      "id": "21",
+      "kind": "narration",
+      "heading": "地圖串場 — 卡波荷",
+      "narration": "夏威夷大島，東南角，普納地區。一條叫卡波荷的偏遠海岸路。一九九一年的那個聖誕夜，達娜，就是在這裡，消失的。",
+      "narrIndex": 3,
+      "visual": [
+        "map"
+      ],
+      "imagePrompt": "cinematic documentary still, dark moody lighting, cold desaturated palette, film grain, shallow depth of field, realistic, investigative tone, 16:9 --ar 16:9, DNA report floating in mist, ghostly timeline numbers visible (1991 to 2024), courtroom and filing room silhouettes overlapping in background, red question mark symbol faintly visible, timeless investigative atmosphere, abstract dreamlike quality"
+    },
+    {
+      "id": "04",
+      "kind": "narration",
+      "heading": "抓了人",
+      "narration": "警方有 DNA。後來，警方也抓了人。從一九九七年起，三名男子先後被起訴：法蘭克·保羅二世，以及兄弟兩人——艾伯特·伊恩·施韋澤、肖恩·施韋澤。三個人。指控很重：謀殺、綁架、性侵。但他們是怎麼被推上被告席的，才是這個故事真正的開始。",
+      "narrIndex": 4,
+      "visual": [
+        "illust",
+        "chart"
+      ],
+      "imagePrompt": "cinematic documentary still, dark moody lighting, cold desaturated palette, film grain, shallow depth of field, realistic, investigative tone, 16:9 --ar 16:9, courtroom scene with three anonymous silhouettes standing in defendants' dock, harsh white spotlight creating sharp shadows, wooden court bench and judge's gavel reflection in glass, faces not visible only silhouettes, tense legal atmosphere, 1990s courtroom"
+    },
+    {
+      "id": "05",
+      "kind": "narration",
+      "heading": "一名線人的一句話",
+      "narration": "法庭上，檢方沒有現場目擊者。沒有監視畫面。他們手裡最關鍵的，是一份來自獄中的證詞。一名在押的線人，麥克·奧蒂茲，於一九九九年聲稱伊恩·施韋澤在牢裡向他坦白。 重訴，很大程度就建立在這句話上。",
+      "narrIndex": 5,
+      "visual": [
+        "illust"
+      ],
+      "imagePrompt": "cinematic documentary still, dark moody lighting, cold desaturated palette, film grain, shallow depth of field, realistic, investigative tone, 16:9 --ar 16:9, prison visitation room through glass partition, two silhouettes in conversation with faces distorted by glass reflection, microphone suspended above, inmate silhouette against wall, interrogation room atmosphere, 1990s prison interior, no faces visible only shadows and distorted reflections"
+    },
+    {
+      "id": "06",
+      "kind": "narration",
+      "heading": "後來，他承認自己說了謊",
+      "narration": "但這名線人，後來親口承認——他的部分證詞是虛假的。據相關紀錄，他還涉及收受檢方給予的利益。 如果是你，你會把三個人的人生，押在這樣一句話上嗎？ 定罪靠的是一名線人。而這名線人，後來親口承認他說了謊。",
+      "narrIndex": 6,
+      "visual": [
+        "chart",
+        "illust"
+      ],
+      "imagePrompt": "cinematic documentary still, dark moody lighting, cold desaturated palette, film grain, shallow depth of field, realistic, investigative tone, 16:9 --ar 16:9, prison interrogation room, witness confession document on metal table, single overhead lamp casting harsh shadows, anonymous silhouette of person pointing at testimony text, crumpled paper, evidence of recanted statement, institutional gray walls, forensic file folder, cold metal, regret and deception theme, 1990s archive aesthetic"
+    },
+    {
+      "id": "07",
+      "kind": "narration",
+      "heading": "在你以為的之前，DNA 早就說過話了",
+      "narration": "這裡，我要先停一下，問你一個問題。你大概會以為，是 DNA 把這三個人送進監獄的吧？ 不是。早在那名線人出現之前，就有一份 DNA 報告。一九九八年十月七日。檢驗結果很清楚：現場拭子與床單上的精子，把三名被告——全部排除。完全無關。",
+      "narrIndex": 7,
+      "visual": [
+        "illust"
+      ],
+      "imagePrompt": "cinematic documentary still, dark moody lighting, cold desaturated palette, film grain, shallow depth of field, realistic, investigative tone, 16:9 --ar 16:9, forensic laboratory, DNA test report dated October 7 1998 on cold metal surface, exclusion result highlighted, blurred scientific equipment in background, evidence table with case files, cold blue-gray tones, laboratory microscope silhouette, sterile institutional setting, truth that was overlooked, documentary evidence photography, authoritative scientific record"
+    },
+    {
+      "id": "08",
+      "kind": "narration",
+      "heading": "排除之後，他們卻仍被定罪",
+      "narration": "檢方一度因此駁回了對施韋澤兄弟的部分控訴。但到了一九九九年五月，方向變了。檢方重新起訴他們。 為什麼？因為那份來自獄中的證詞。一九九九到二○○○年，三人陸續被定罪或認罪。法蘭克·保羅二世於一九九九年被定罪。艾伯特·伊恩·施韋澤於二○○○年二月被定罪，官方記錄為一百三十年有期徒刑。肖恩·施韋澤在面臨重刑壓力下，做了一個選擇——他對過失殺人與綁架認罪。他的律師後來主張，那是一樁虛假認罪，為了避免像哥哥一樣的漫長刑期。",
+      "narrIndex": 8,
+      "visual": [
+        "chart",
+        "illust"
+      ],
+      "imagePrompt": "cinematic documentary still, dark moody lighting, cold desaturated palette, film grain, shallow depth of field, realistic, investigative tone, 16:9 --ar 16:9, courtroom interior, judge silhouette, DNA exclusion report turned facedown on wooden table, legal documents stacked behind, timeline overlay 1998-1999-2000 faintly visible, harsh overhead courtroom lights creating stark shadows, anonymous defendant silhouette in background, sense of injustice and contradiction, cold institutional architecture, evidence suppression theme, gavel shadow on report"
+    },
+    {
+      "id": "09",
+      "kind": "narration",
+      "heading": "事實正相反",
+      "narration": "讓我把這件事說清楚，確保你聽明白了。你以為他們是因為 DNA 被定罪。 事實正相反————他們是在 DNA 已經排除了他們之後，依然被定罪。一份證明清白的報告，敵不過一句後來被承認虛假的證詞。",
+      "narrIndex": 9,
+      "visual": [
+        "chart"
+      ],
+      "imagePrompt": "cinematic documentary still, dark moody lighting, cold desaturated palette, film grain, shallow depth of field, realistic, investigative tone, 16:9 --ar 16:9, split composition showing DNA exclusion report at top and guilty verdict document at bottom, symmetrical frame divided by visual separation, cold desaturated colors, evidence contradiction, irony and injustice emphasized through composition, document details sharp, harsh documentary lighting, forensic file folder edges visible, institutional blue-gray palette, paradox visual metaphor"
+    },
+    {
+      "id": "HOST-轉場 1",
+      "kind": "host",
+      "heading": "Pilot · 調查員出鏡",
+      "hostFunction": "解說員 — 轉場（DNA 悖論的解說）",
+      "narration": "我知道，這聽起來不合邏輯。一份排除了他們的 DNA，怎麼會敵不過一句話？但在那個年代，DNA 能說「不是這幾個人」，卻還不足以讓陪審團放手。 而代價，是三個人的人生。",
+      "visual": [
+        "host"
+      ],
+      "imagePrompt": "解說員 Pilot 全螢幕定格出鏡（brand/assets/host-reference.png）"
+    },
+    {
+      "id": "10",
+      "kind": "narration",
+      "heading": "被偷走的歲月",
+      "narration": "三個人進了監獄。艾伯特·伊恩·施韋澤從二○○○年定罪起，在獄中度過了逾二十年。一天，一天，又一天。肖恩·施韋澤服了約一年監禁，之後背負著緩刑與這樁定罪的標籤，過了許多年——背負著一樁，他後來被認定並未犯下的罪。而法蘭克·保羅二世，被關押在新墨西哥州的監獄裡。二○一五年四月，據官方通報，他在獄中遭另一名在押者攻擊身亡。他，沒能等到平反的那一天。",
+      "narrIndex": 10,
+      "visual": [
+        "video",
+        "real-photo"
+      ],
+      "imagePrompt": "cinematic documentary still, dark moody lighting, cold desaturated palette, film grain, shallow depth of field, realistic, investigative tone, 16:9 --ar 16:9, prison corridor stretching into darkness, metal bars silhouette in foreground, faint light from distant window, time markers floating ghostly in space 2000 20 years 2015 April, cold institutional blue-gray tones, passage of time theme, diminishing light suggesting death, lonely and oppressive atmosphere, footsteps echoing emptiness, decades of captivity visual metaphor, fading into black"
+    },
+    {
+      "id": "11",
+      "kind": "narration",
+      "heading": "還不回來的東西",
+      "narration": "三個人的人生，被一樁他們後來被認定並未犯下的罪改寫。而其中一個，永遠等不到真相了。",
+      "narrIndex": 11,
+      "visual": [
+        "illust"
+      ],
+      "imagePrompt": "cinematic documentary still, dark moody lighting, cold desaturated palette, film grain, shallow depth of field, realistic, investigative tone, 16:9 --ar 16:9 | three empty chairs in shadow cast against prison cell wall, dusty beam of light, nobody present, time frozen, loss and absence"
+    },
+    {
+      "id": "12",
+      "kind": "narration",
+      "heading": "技術沒有停下來",
+      "narration": "但時間沒有停止。技術，也沒有停止。二○○八年起，那份 DNA 被送往加州的法醫實驗室。科學在進步，每一年，設備都在變得更精密。後續，這些樣本又被送往加州另一家機構做進階分析。以前的技術做不到的事，後來，慢慢做到了。",
+      "narrIndex": 12,
+      "visual": [
+        "video",
+        "illust"
+      ],
+      "imagePrompt": "cinematic documentary still, dark moody lighting, cold desaturated palette, film grain, shallow depth of field, realistic, investigative tone, 16:9 --ar 16:9 | DNA laboratory equipment evolution montage, 1990s microscope to modern sequencer, anonymous gloved hands handling evidence vials, forensic lab interior, precise technical lighting, California forensic facility aesthetic"
+    },
+    {
+      "id": "13",
+      "kind": "narration",
+      "heading": "兩道撤銷令",
+      "narration": "二○二三年一月二十四日，希洛地方法院法官彼得·庫博塔，簽署了一份撤銷令——基於新的 DNA 證據，撤銷艾伯特·伊恩·施韋澤的定罪。 他在同一天獲釋。走出監獄的那一刻，他終於————被還以清白。同年十月二十三日，法官庫博塔再次簽署撤銷令，撤銷肖恩·施韋澤的定罪，並推翻他先前的認罪。他，也被平反了。",
+      "narrIndex": 13,
+      "visual": [
+        "real-photo",
+        "chart"
+      ],
+      "imagePrompt": "cinematic documentary still, dark moody lighting, cold desaturated palette, film grain, shallow depth of field, realistic, investigative tone, 16:9 --ar 16:9 | court document exoneration orders with judge signature, official seals, January and October dates visible, legal paperwork on dark surface, dramatic document lighting, two separate pages symbolizing freedom"
+    },
+    {
+      "id": "14",
+      "kind": "narration",
+      "heading": "還缺最後一塊",
+      "narration": "兩個人，終於走出了那樁不屬於他們的罪。 但案子，還缺最後一塊。 那份 DNA，到底屬於誰？",
+      "narrIndex": 14,
+      "visual": [
+        "chart"
+      ],
+      "imagePrompt": "cinematic documentary still, dark moody lighting, cold desaturated palette, film grain, shallow depth of field, realistic, investigative tone, 16:9 --ar 16:9 | incomplete jigsaw puzzle with missing center piece, question mark shadow, cold blue monochrome, mystery and uncertainty, forensic case file aesthetic"
+    },
+    {
+      "id": "HOST-轉場 2",
+      "kind": "host",
+      "heading": "Pilot · 調查員出鏡",
+      "hostFunction": "解說員 — 轉場（為逮捕爭議預埋法律概念）",
+      "narration": "接下來，你只要先記住兩件事。第一，有些罪會因為時間太久，「過了追訴期」，再也告不了。第二，要逮捕一個人，法律要的不只是「相符」，而是足夠的「合理依據」。等一下你就會明白，這兩件事，是怎麼把一樁案子，推進了死胡同。",
+      "visual": [
+        "host"
+      ],
+      "imagePrompt": "解說員 Pilot 全螢幕定格出鏡（brand/assets/host-reference.png）"
+    },
+    {
+      "id": "15",
+      "kind": "narration",
+      "heading": "一棵回溯到十八世紀的家族樹",
+      "narration": "二○二四年二月，一個轉折出現了。法醫族譜學專家史蒂芬·克萊默的團隊開始工作。他們用的，不是傳統的 DNA 資料庫比對——那份 DNA，三十多年來都無人匹配。他們用的是系譜學。他們回溯夏威夷的族譜紀錄，一路追到十八世紀。透過家族樹、親緣關係，一步一步，逼近一個名字。 二月，這份回溯，指向了一個人——阿爾伯特·勞羅二世。",
+      "narrIndex": 15,
+      "visual": [
+        "chart",
+        "illust"
+      ],
+      "imagePrompt": "cinematic documentary still, dark moody lighting, cold desaturated palette, film grain, shallow depth of field, realistic, investigative tone, 16:9 --ar 16:9 | genealogical family tree expanding upward through centuries, abstract silhouettes of ancestors (no faces), DNA helix integrated, Hawaii territorial map background, connecting lines converging to a single name in forensic file yellow highlight, forensic genealogy breakthrough moment"
+    },
+    {
+      "id": "16",
+      "kind": "narration",
+      "heading": "七月的那幾天",
+      "narration": "二○二四年七月十九日，在一次自願性的會見中，警方依法院令，採集了他的口腔棉簽樣本。他當時並未被逮捕。樣本被送進實驗室。七月二十九日，警方公開宣布：相符。現場七個不同的樣品——體液、衣物、皮膚組織——據警方，全部指向同一份 DNA。三十多年的問題，似乎終於有了一個方向。",
+      "narrIndex": 16,
+      "visual": [
+        "illust"
+      ],
+      "imagePrompt": "cinematic documentary still, dark moody lighting, cold desaturated palette, film grain, shallow depth of field, realistic, investigative tone, 16:9 --ar 16:9; forensic laboratory close-up, sterile evidence container with cotton swab sample, cold fluorescent light, case files and DNA test reports in soft focus background, cold color grading, scientific and clinical atmosphere"
+    },
+    {
+      "id": "17",
+      "kind": "narration",
+      "heading": "晚了四天",
+      "narration": "但這個方向，來得太晚了。在採樣之後的幾天內————七月二十三日，阿爾伯特·勞羅二世在家中身亡。據法醫初步裁定，死因為自殺；具體情形未對外公開。也就是說，在警方公開宣布 DNA 相符之前，那個被指認的人，已經不在了。他們，晚了四天。",
+      "narrIndex": 17,
+      "visual": [
+        "real-photo",
+        "chart"
+      ],
+      "imagePrompt": "cinematic documentary still, dark moody lighting, cold desaturated palette, film grain, shallow depth of field, realistic, investigative tone, 16:9 --ar 16:9; calendar or timeline with dates July 19-29, specific dates highlighted in warning orange, dark residential interior silhouette in background, empty room at night, forensic investigation sequence, temporal narrative emphasis"
+    },
+    {
+      "id": "18",
+      "kind": "narration",
+      "heading": "他從未站上法庭",
+      "narration": "他從未被逮捕。他從未被起訴謀殺。他從未站上法庭，回答任何一個問題。夏威夷警方的警長班·莫斯科維奇給出了原因：就強姦罪而言，據他所述，DNA 足以支持指控，但追訴時效已經過了；至於謀殺罪————單憑 DNA，不足以構成逮捕所需的合理依據。",
+      "narrIndex": 18,
+      "visual": [
+        "video",
+        "chart"
+      ],
+      "imagePrompt": "cinematic documentary still, dark moody lighting, cold desaturated palette, film grain, shallow depth of field, realistic, investigative tone, 16:9 --ar 16:9; empty courtroom, defendant stand and witness chair unoccupied, cold fluorescent overhead lighting casting harsh shadows, wooden railing in sharp focus, absence and void emphasized, faceless and silent atmosphere"
+    },
+    {
+      "id": "19",
+      "kind": "narration",
+      "heading": "一場開不成的辯論",
+      "narration": "這是執法部門的說法。而族譜學專家克萊默並不同意。據報導，他認為證據已足以支持一張逮捕令。但這場爭議，永遠無法在法庭上被解決。因為那個人，已經死了。",
+      "narrIndex": 19,
+      "visual": [
+        "illust"
+      ],
+      "imagePrompt": "cinematic documentary still, dark moody lighting, cold desaturated palette, film grain, shallow depth of field, realistic, investigative tone, 16:9 --ar 16:9; two conflicting legal documents side by side, police report and expert genealogy analysis, old case files with handwritten notes, newspaper clippings, evidence table top-down angle, deep shadow dividing the two positions, unresolved debate frozen in paper"
+    },
+    {
+      "id": "20",
+      "kind": "narration",
+      "heading": "一樁無法終結的案件",
+      "narration": "三個無辜的人，終於被平反。但被偷走的那些年，沒有人能還給他們。而那個 DNA 相符的名字————也永遠無法在法庭上，回答任何一個問題。案件看似結束。但對被冤判的人、對達娜·愛爾蘭的家人來說，它，從未真正被了結。",
+      "narrIndex": 20,
+      "visual": [
+        "real-photo",
+        "chart"
+      ],
+      "imagePrompt": "cinematic documentary still, dark moody lighting, cold desaturated palette, film grain, shallow depth of field, realistic, investigative tone, 16:9 --ar 16:9; three exoneration certificates or release documents stacked, closed case file folder marked with finality but unresolved, cold dim lighting, old paper texture, forensic photographs partially visible, symbolic objects representing three innocent lives and one unresolved death, somber and incomplete resolution atmosphere"
+    },
+    {
+      "id": "HOST-結尾",
+      "kind": "host",
+      "heading": "Pilot · 調查員出鏡",
+      "hostFunction": "解說員 — 結尾",
+      "narration": "三個無辜的人終於被平反，但被偷走的那些年，沒有人能還給他們。而那個 DNA 相符的名字，也永遠無法在法庭上，回答任何一個問題。我是 Pilot，我們，下一個案子見。",
+      "visual": [
+        "host"
+      ],
+      "imagePrompt": "解說員 Pilot 全螢幕定格出鏡（brand/assets/host-reference.png）"
+    }
+  ],
+  "intro": {
+    "dateLines": [
+      "一九九一年 十二月二十四日",
+      "夏威夷 卡波荷（Kapoho, Hawaiʻi Island）"
+    ]
+  },
+  "ending": {
+    "question": "如果 DNA 在一九九八年就排除了三人，那被偷走的歲月，該由誰來償還？如果那個 DNA 相符的人在被指認後就離世，達娜·愛爾蘭的家人，又該向誰，討一句答案？",
+    "realFootage": true,
+    "credits": "謹以本片，記念達娜·瑪麗·愛爾蘭（1968–1991）。感謝每一位為真相奔走的人——調查者、平反律師、法醫科學家，與始終沒有放棄的家屬。"
+  }
+}

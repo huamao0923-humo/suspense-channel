@@ -1,0 +1,79 @@
+{
+  "categories": [
+    "Snowtown, South Australia",
+    "Adelaide, South Australia (historic)",
+    "Bank buildings Australia",
+    "Australian crime history",
+    "South Australian police",
+    "1990s photographs Australia"
+  ],
+  "queries": [
+    "Snowtown bank building 1950s architecture",
+    "South Australia historic bank interior 1956",
+    "Adelaide street 1990s historic photograph",
+    "Seven News 1999 police investigation archive",
+    "NFSA Snowtown discovery May 1999",
+    "South Australian historic photography 1990s",
+    "Snowtown District Council 1909",
+    "Adelaide early 1990s state government photo",
+    "bank vault 1950s 1960s architecture Australia"
+  ],
+  "avoidTerms": [
+    "2010",
+    "2011",
+    "2020",
+    "2024",
+    "construction",
+    "renovation",
+    "modern building",
+    "contemporary",
+    "Snowtown film",
+    "Justin Kurzel",
+    "dramatization",
+    "crime investigation tv",
+    "documentary series",
+    "podcast",
+    "crime at bedtime",
+    "trial footage",
+    "court drama",
+    "mugshot",
+    "media production"
+  ],
+  "institutions": [
+    {
+      "name": "National Film and Sound Archive of Australia (NFSA)",
+      "url": "https://www.nfsa.gov.au/",
+      "license": "Zero Fee Licence + fee-based institutional access"
+    },
+    {
+      "name": "State Library of South Australia (SLSA)",
+      "url": "https://www.slsa.sa.gov.au/",
+      "license": "Government public collections (mostly CC0/PD)"
+    },
+    {
+      "name": "City of Adelaide Archives",
+      "url": "https://www.cityofadelaide.com.au/community/creativity-culture/city-archives/archives-collection/",
+      "license": "Municipal government records (presumed PD)"
+    },
+    {
+      "name": "State Records of South Australia",
+      "url": "https://archives.sa.gov.au/",
+      "license": "Government archives with access restrictions"
+    },
+    {
+      "name": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/Category:Snowtown,_South_Australia",
+      "license": "CC-BY-SA 3.0, CC0, and mixed licenses per file"
+    },
+    {
+      "name": "National Archives of Australia",
+      "url": "https://www.naa.gov.au/",
+      "license": "Government records with restricted access policies"
+    },
+    {
+      "name": "Australian Broadcasting Corporation (ABC) Archives",
+      "url": "https://www.nfsa.gov.au/tags/abc",
+      "license": "Broadcast copyright (restricted)"
+    }
+  ]
+}

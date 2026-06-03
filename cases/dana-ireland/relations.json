@@ -1,0 +1,22 @@
+{
+  "title": "人物關係圖 · 三次錯案與 DNA 真相",
+  "footer": "關係示意圖 · 依公開判決／平反紀錄整理 · 未定罪者標「涉嫌」，平反者為錯誤定罪之受害者",
+  "showOnNarrIndex": [9, 15],
+  "_note": "依 factcheck.md：Albert Lauro Jr. 僅 DNA 相符、未經起訴定罪（涉嫌、已歿）；三名被告均已平反，不得暗示為真兇。節點隨旁白逐一浮現。layer=第幾層(0 最上)，col=水平位置。",
+  "nodes": [
+    { "id": "dana",  "name": "Dana Ireland",          "tag": "被害人",                 "trait": "1991/12/25 遇害 · 享年 23", "layer": 0, "col": 1.5 },
+    { "id": "lauro", "name": "Albert Lauro Jr.",       "tag": "涉嫌 · DNA 相符",         "trait": "未起訴定罪 · 2024 已歿",   "layer": 1, "col": 0 },
+    { "id": "ian",   "name": "Albert Ian Schweitzer",  "tag": "冤案 · 已平反",           "trait": "2000 定罪 → 2023 撤銷",    "layer": 1, "col": 1 },
+    { "id": "shawn", "name": "Shawn Schweitzer",       "tag": "冤案 · 已平反",           "trait": "2000 認罪 → 2023 撤銷",    "layer": 1, "col": 2 },
+    { "id": "frank", "name": "Frank Pauline Jr.",      "tag": "冤案 · 已平反",           "trait": "1999 定罪 · 2015 獄中遇害", "layer": 1, "col": 3 },
+    { "id": "ortiz", "name": "Michael Ortiz",          "tag": "獄中線人",               "trait": "證詞後承認不實",           "layer": 2, "col": 1 }
+  ],
+  "edges": [
+    { "from": "lauro", "to": "dana",  "label": "DNA 相符（涉嫌）" },
+    { "from": "ian",   "to": "dana",  "label": "遭錯誤定罪 · 已平反" },
+    { "from": "shawn", "to": "dana",  "label": "遭錯誤定罪 · 已平反" },
+    { "from": "frank", "to": "dana",  "label": "遭錯誤定罪 · 已平反" },
+    { "from": "ortiz", "to": "ian",   "label": "獄中不實指證" },
+    { "from": "ian",   "to": "shawn", "label": "兄弟" }
+  ]
+}

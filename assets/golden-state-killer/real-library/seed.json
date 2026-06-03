@@ -1,0 +1,71 @@
+{
+  "categories": [
+    "Joseph James DeAngelo",
+    "Golden State Killer",
+    "East Area Rapist",
+    "Sacramento County California",
+    "Sacramento in the 1970s",
+    "Sacramento in the 1980s",
+    "California Historical Landmarks in Sacramento County",
+    "History of Sacramento County California"
+  ],
+  "queries": [
+    "Golden State Killer FBI documents public domain",
+    "Sacramento 1976 1980s historical photograph archive",
+    "Joseph DeAngelo court documents Sacramento County",
+    "East Area Rapist evidence photographs federal",
+    "1970s 1980s Sacramento neighborhood historic scenes",
+    "Sacramento Police Department historical mugshots",
+    "Golden State Killer arrest 2018 press conference official video",
+    "California State Library historical photographs Sacramento"
+  ],
+  "avoidTerms": [
+    "Sunrise Mall 2000s modern shopping",
+    "Medienhafen",
+    "contemporary Sacramento skyline",
+    "modern residential development",
+    "current neighborhood",
+    "2020s infrastructure",
+    "digital cameras",
+    "modern surveillance",
+    "recent construction",
+    "present-day street view"
+  ],
+  "institutions": [
+    {
+      "name": "Federal Bureau of Investigation (FBI)",
+      "url": "https://www.fbi.gov/",
+      "license": "Public Domain (17 U.S.C. § 105 - Federal Government Works)"
+    },
+    {
+      "name": "Sacramento County Superior Court",
+      "url": "https://www.saccourt.ca.gov/",
+      "license": "Public Domain (California Court Records)"
+    },
+    {
+      "name": "National Institute of Standards and Technology (NIST)",
+      "url": "https://www.nist.gov/",
+      "license": "Public Domain (Federal Agency Work)"
+    },
+    {
+      "name": "Center for Sacramento History",
+      "url": "https://www.centerforsacramentohistory.org/",
+      "license": "Institutional License / Mixed (verify per file)"
+    },
+    {
+      "name": "California State Library",
+      "url": "https://www.library.ca.gov/",
+      "license": "Institutional License / Mixed (verify per file)"
+    },
+    {
+      "name": "California Digital Library (Calisphere)",
+      "url": "https://calisphere.org/",
+      "license": "Mixed (per contributing institution; verify per file)"
+    },
+    {
+      "name": "Online Archive of California (OAC)",
+      "url": "https://oac.cdlib.org/",
+      "license": "Mixed (institutional and public domain materials)"
+    }
+  ]
+}

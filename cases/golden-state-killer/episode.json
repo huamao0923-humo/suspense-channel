@@ -1,0 +1,291 @@
+{
+  "channel": "Pilot 調查員",
+  "title": "黃金州殺手（Golden State Killer）",
+  "slug": "golden-state-killer",
+  "legalStatus": "已定讞（2020 年 8 月 21 日判無假釋終身監禁；本片於認罪定讞前之具體犯行一律以「涉嫌／被指控」陳述）",
+  "segments": [
+    {
+      "id": "HOST-01",
+      "kind": "host",
+      "heading": "Pilot · 調查員出鏡",
+      "hostFunction": "解說員 — 開場（背景＋帶入）",
+      "narration": "撥開迷霧，看見真相！大家好，我是 Pilot 調查員。今晚這樁案子，是美國刑案史上最不尋常的逮捕之一—— 一個塵封四十年的冷案，最後靠的，是一份被丟進垃圾桶的衛生紙、一個公開的基因資料庫，還有一個叫 Michelle McNamara 的女人。 我們一步一步，拼湊出事情的全貌。現在，讓我們回到 1974 年那個夏天，加州。",
+      "visual": [
+        "host"
+      ],
+      "imagePrompt": "解說員 Pilot 全螢幕定格出鏡（brand/assets/host-reference.png）"
+    },
+    {
+      "id": "01",
+      "kind": "narration",
+      "heading": "三道陰影 — 分散的謎團",
+      "narration": "想像一下——在加州，有三道犯罪的陰影，橫掃南北，前後長達十二年。1974 年到 1986 年間，它們出現在不同的城市、不同的時間。 一開始，沒有人想到它們之間有任何關聯。北部的 Visalia，一個夜賊反覆潛入民宅。 來去無蹤，只留下被翻動的抽屜、被撬開的窗。當地警方叫他「Visalia 竊盜者」。 再往北，Sacramento 一帶。一個被指控在夜間闖入住宅的人，受害者人數不斷增加。他在黑暗中現身，又在黑暗中消失。警方叫他「東區強暴犯」。 然後往南——被指控的犯行升級了。入侵之後，是針對整個家庭的攻擊。Rancho Cordova、Goleta、Ventura、Orange County……地點不斷跳躍，像是刻意躲避追蹤。警方後來叫他「原始夜行者」。 但沒有人想到—— 這三道鬼影，據後來的調查，其實指向同一個人。",
+      "narrIndex": 0,
+      "visual": [
+        "real-photo",
+        "map"
+      ],
+      "imagePrompt": null
+    },
+    {
+      "id": "02",
+      "kind": "narration",
+      "heading": "受害者地景 — 建立恐懼",
+      "narration": "被指控的這個人，似乎有一種特定的偏好。他鎖定的，不是街上的陌生人，而是——一個個的「家」。 中產階級的郊區社區。臨近學校、臨近小徑、容易脫身的單層住宅。他會觀察，會挑選。整個加州的社區，籠罩在一種沒有名字的恐懼裡。人們養狗、換新鎖，有人甚至抱著獵槍睡覺。 每一個夜晚，都像一道威脅。",
+      "narrIndex": 1,
+      "visual": [
+        "real-photo",
+        "illust"
+      ],
+      "imagePrompt": null
+    },
+    {
+      "id": "03",
+      "kind": "narration",
+      "heading": "案件的規模 — 量感製造無力",
+      "narration": "慢慢地，調查人員開始把數字攤開來看。 13 起謀殺。50 多起性侵。120 多起入室竊盜。 跨越十二年，橫跨整個加州。那些被害人，都有名字。Claude Snelling、Brian 與 Katie Maggiore、Debra Manning、Robert Offerman、Lyman 與 Charlene Smith、Keith 與 Patrice Harrington…… 一份名單，沉重得讓人喘不過氣。 13 條人命。13 個破碎的家庭。而當時，沒有人知道，這一切被指控的犯行，究竟是誰做的。",
+      "narrIndex": 2,
+      "visual": [
+        "chart",
+        "real-photo"
+      ],
+      "imagePrompt": null
+    },
+    {
+      "id": "04",
+      "kind": "narration",
+      "heading": "制服底下 — 身分反差的預埋",
+      "narration": "但有一個細節，在當時被完全忽略了。1973 年，一個名叫 Joseph DeAngelo 的男人，成為一名警察。他在加州 Exeter 警局任職，工作內容之一，正是——竊案的調查。 換句話說，他負責去抓的，就是像「Visalia 竊盜者」這樣的人。1976 年 8 月，他轉調到 Auburn 警局。 一個站在執法第一線的人，懂得警方怎麼辦案，知道他們會往哪裡找線索。 後來人們才回頭發現——這，或許並不只是巧合。",
+      "narrIndex": 3,
+      "visual": [
+        "real-photo",
+        "illust"
+      ],
+      "imagePrompt": null
+    },
+    {
+      "id": "05",
+      "kind": "narration",
+      "heading": "制服與盜竊 — 反轉的引信",
+      "narration": "1979 年 7 月，一件看似不起眼的小事發生了。DeAngelo 被指控在任職期間偷竊——一把榔頭，和一罐驅狗噴劑。 一個負責抓賊的警察，自己被指控行竊。同年 10 月，他遭到開除。他失去了制服，也失去了掩護。 而這，還不是最讓人發冷的部分。",
+      "narrIndex": 4,
+      "visual": [
+        "real-photo",
+        "illust"
+      ],
+      "imagePrompt": null
+    },
+    {
+      "id": "06",
+      "kind": "narration",
+      "heading": "被選上的人 — 受害者的模式",
+      "narration": "讓我們認識一下那些被害人。Rancho Cordova，Brian 與 Katie Maggiore，一對年輕夫婦，在自己家附近被發現身受致命傷。Goleta，Debra Manning 與 Robert Offerman。Ventura，Lyman 與 Charlene Smith。他們在自己的家中被發現遇害。 但在那個現場，有東西被保留了下來——一份生物跡證，被法醫採集、封存，然後冷藏起來。當時沒有人知道，這一份樣本，日後會改變一切。 一個一個，他們都有名字。他們都有自己的人生。而他們，都被選中了。",
+      "narrIndex": 5,
+      "visual": [
+        "real-photo",
+        "illust"
+      ],
+      "imagePrompt": null
+    },
+    {
+      "id": "07",
+      "kind": "narration",
+      "heading": "規則的發現 — 懸念轉向",
+      "narration": "調查人員開始看見一個模式。這些案件，不是隨機的，也不是無差別的。 他在尋找什麼，他在挑選什麼。房屋的位置。社區的特徵。逃脫的路線。 被指控的這個人，不像一個衝動的獵手，更像一個——計劃者。一切看起來毫無章法……但後來，人們發現了他的規則。",
+      "narrIndex": 6,
+      "visual": [
+        "chart",
+        "illust"
+      ],
+      "imagePrompt": null
+    },
+    {
+      "id": "08",
+      "kind": "narration",
+      "heading": "名單的延伸 — 反轉引爆",
+      "narration": "Manuela Witthuhn 在 Irvine。Cheri Domingo 與 Gregory Sanchez 在 Goleta。Keith 與 Patrice Harrington 在 Dana Point。 每一起案件，都落在加州的不同角落。地理上的分散，遮蔽了犯罪的統一性。不同轄區的警方各查各的，資訊彼此孤立，很難想到這些案件，據後來的調查，竟出自同一個人之手。 而更讓人不安的是——在這個被指控者身為執法者、甚至負責處理竊案的同一段時期，相關的犯行，仍在持續發生。",
+      "narrIndex": 7,
+      "visual": [
+        "map",
+        "real-photo"
+      ],
+      "imagePrompt": null
+    },
+    {
+      "id": "09",
+      "kind": "narration",
+      "heading": "1986 年之後 — 戛然而止",
+      "narration": "然後，1986 年，一名 18 歲的年輕女性 Janelle Cruz 在 Irvine 遇害。她是目前已確認的最後一名被害人。 在那之後，就停了。沒有新的謀殺。沒有新的性侵。沒有新的竊盜。一個被指控連續犯案、橫行十二年的人，突然——消失了。 沒有人知道為什麼。 關於他為何停手，外界有過各種猜測。但這些都只是「推測」，沒有任何確證。真相，依然埋在時間裡。 案子冷了。線索斷了。一年過去，十年過去，三十年過去了。",
+      "narrIndex": 8,
+      "visual": [
+        "real-photo",
+        "illust"
+      ],
+      "imagePrompt": null
+    },
+    {
+      "id": "HOST-中場1",
+      "kind": "host",
+      "heading": "Pilot · 調查員出鏡",
+      "hostFunction": "解說員 — 轉場（停手 → 冷案重燃）",
+      "narration": "此後三十年，這個名字，像是從世上消失了。警方放棄了。 直到一個女人，決定不放手——她叫 Michelle McNamara。",
+      "visual": [
+        "host"
+      ],
+      "imagePrompt": "解說員 Pilot 全螢幕定格出鏡（brand/assets/host-reference.png）"
+    },
+    {
+      "id": "10",
+      "kind": "narration",
+      "heading": "冷案的重燃 — 執念的力量",
+      "narration": "Michelle McNamara，是一位真實犯罪題材的作家。2013 年，她在《洛杉磯》雜誌上發表了一篇文章。文章裡的一個詞，定義了整起案子——「黃金州殺手」（Golden State Killer）。 她用一個簡潔的稱呼，把所有零散的碎片、所有的時間線、所有無名的死者，串成了一個單一的身影。她開始追查，開始研究。她與一位冷案調查員合作——Paul Holes，一個在 Contra Costa County 工作多年、始終沒有放棄的人。 他們在黑暗裡摸索，想把一個幽靈，還原成一個人。",
+      "narrIndex": 9,
+      "visual": [
+        "real-photo",
+        "illust"
+      ],
+      "imagePrompt": null
+    },
+    {
+      "id": "11",
+      "kind": "narration",
+      "heading": "著作與時間 — 執念的代價",
+      "narration": "她開始寫一本書，書名是《I'll Be Gone in the Dark》。 一個帶著終局感、也帶著遺憾的書名。她在書裡重建一起又一起的案件，訪問倖存者，蒐集細節，試著回答那個最核心的問題——這個人是誰？他為什麼這麼做？他現在在哪裡？ 但她，沒能等到答案。2016 年 4 月 21 日，Michelle McNamara 過世，死因為多種處方藥物過量。 她的書還沒寫完，她的假設，還沒得到驗證。 她走了。就在答案即將浮出水面之前。",
+      "narrIndex": 10,
+      "visual": [
+        "real-photo",
+        "illust"
+      ],
+      "imagePrompt": null
+    },
+    {
+      "id": "12",
+      "kind": "narration",
+      "heading": "遺作的發行 — 時間的巧合",
+      "narration": "她的家人、她的編輯、她的合作者，決定替她把工作完成。2018 年 2 月，《I'll Be Gone in the Dark》正式出版。 不到兩個月——警方就逮捕了被指控為「黃金州殺手」的人。就好像 McNamara 的執念，在她離開之後，仍在繼續運作。 她沒能親眼看到的那一步，藏在科技裡，藏在基因裡。",
+      "narrIndex": 11,
+      "visual": [
+        "real-photo",
+        "illust"
+      ],
+      "imagePrompt": null
+    },
+    {
+      "id": "13",
+      "kind": "narration",
+      "heading": "基因的證詞 — 科技的突破",
+      "narration": "要鎖定一個四十年的幽靈，傳統的方法行不通。當時的標準 DNA 資料庫裡，沒有他的紀錄。 因為依公開報導，他從未因重罪定罪，所以他的 DNA 從未被建檔。在系統裡，他幾乎像是不存在。但調查人員找到了另一條路。他們調出一份 1980 年自案件現場採集的 DNA 樣本——來自 Charlene Smith 案，在法醫冷藏室裡，已經保存了將近 38 年。 這份樣本保存得相當完整，含有大量犯人的遺傳物質。他們把這份 DNA，轉換成一種新型的遺傳標記，然後上傳到一個公開的系譜資料庫——GEDmatch。",
+      "narrIndex": 12,
+      "visual": [
+        "chart",
+        "real-photo"
+      ],
+      "imagePrompt": null
+    },
+    {
+      "id": "14",
+      "kind": "narration",
+      "heading": "家系圖的獵人 — 逆向追蹤",
+      "narration": "GEDmatch，是一個由民眾自願上傳 DNA 的系譜網站。大多數人上傳，是為了尋找失散的親人。但這一次，調查人員用了相反的方向。 他們拿著這份來自現場的 DNA，反向搜尋——尋找匹配。結果出現了。不是直接的親屬，而是——大約 100 名遠房親戚。 都與這份 DNA，共享著某些古老的血脈。一位遺傳系譜學家 Barbara Rae-Venter，花了數個月的時間，一層一層手工建構出一張龐大的家系樹。 從遠親往內收攏，逐步逼近。最後，這張圖指向了一個人——一個看起來平凡無奇的中年男子，Joseph James DeAngelo。",
+      "narrIndex": 13,
+      "visual": [
+        "chart",
+        "real-photo"
+      ],
+      "imagePrompt": null
+    },
+    {
+      "id": "15",
+      "kind": "narration",
+      "heading": "秘密採樣 — 無污染的證據",
+      "narration": "鎖定了名字，還不夠。警方沒有立刻逮捕，而是先採樣。 2018 年 4 月，調查人員在一處停車場，從 DeAngelo 車輛的把手上，秘密採集了 DNA。樣本與案件紀錄相符，但混入了其他人的遺傳物質，不夠純淨。 不夠確鑿。於是，他們又做了一件事——他們在他住家外的垃圾裡，找到了一張用過的衛生紙。 這一次，結果乾淨、完整，與現場樣本相符。科技，找到了他。但這一步，也悄悄掀開了一場到今天都還沒結束的隱私爭議。",
+      "narrIndex": 14,
+      "visual": [
+        "map",
+        "real-photo"
+      ],
+      "imagePrompt": null
+    },
+    {
+      "id": "HOST-中場2",
+      "kind": "host",
+      "heading": "Pilot · 調查員出鏡",
+      "hostFunction": "解說員 — 轉場（科技 → 司法）",
+      "narration": "科技，指出了一個名字。 但接下來要面對的，是四十年來，一直在等一個答案的那些人。",
+      "visual": [
+        "host"
+      ],
+      "imagePrompt": "解說員 Pilot 全螢幕定格出鏡（brand/assets/host-reference.png）"
+    },
+    {
+      "id": "16",
+      "kind": "narration",
+      "heading": "認罪的時刻 — 定讞的肅穆",
+      "narration": "2018 年 4 月 24 日，Joseph James DeAngelo 在自家被捕，當時 72 歲。據多方報導，這是遺傳系譜學技術破案的首例重大公開逮捕。 調查就此展開。檢方審視所有的證據、所有的 DNA、所有的案件紀錄。最後——2020 年 6 月 29 日——法院紀錄顯示，DeAngelo 認罪。 13 項一級謀殺，13 項綁架搶劫，外加數十起未被起訴的犯行。 他在法庭上，承認了這一切。",
+      "narrIndex": 15,
+      "visual": [
+        "real-photo",
+        "chart"
+      ],
+      "imagePrompt": null
+    },
+    {
+      "id": "17",
+      "kind": "narration",
+      "heading": "判決的終局 — 無假釋終身監禁",
+      "narration": "一個月後，2020 年 8 月 21 日，判決下來了。 11 項連續、不得假釋的終身監禁，再加上 13 項綁架搶劫罪的額外終身刑期。 這意味著，他將永遠走不出那座監獄。宣判前的聽證會持續了數天。數十名倖存者與被害人家屬，走上前，說出他們的創傷、他們的失去，以及他們等了將近四十年的那份痛。 四十年的等待，在認罪定讞的那一刻，劃下句點。但這個故事，還沒有完。",
+      "narrIndex": 16,
+      "visual": [
+        "real-photo",
+        "illust"
+      ],
+      "imagePrompt": null
+    },
+    {
+      "id": "18",
+      "kind": "narration",
+      "heading": "隱私的潘多拉盒子 — 倫理的發問",
+      "narration": "這個案子，改寫了現代警務的一頁。遺傳系譜學，第一次被用來偵破一起重大刑案。但，代價是什麼？ 在破案過程中，調查比對涉及了大約 100 名與案件無關的遠房親戚。這些人把 DNA 上傳到公開網站，原本只是想找到失散的家人。他們，並沒有針對執法用途逐一表示同意。 他們的基因，在不知情的情況下，被動地成為了破案的一環。這也讓「執法能不能、該不該這樣使用系譜資料庫」的爭論，一路延燒到今天。",
+      "narrIndex": 17,
+      "visual": [
+        "chart",
+        "real-photo"
+      ],
+      "imagePrompt": null
+    },
+    {
+      "id": "19",
+      "kind": "narration",
+      "heading": "遺留的問句 — 開放式反思",
+      "narration": "自此之後，類似的遺傳系譜學技術，陸續協助偵破了更多塵封的舊案。 一項工具，推開了一扇門。而門後究竟是什麼，我們其實還在學習。 DeAngelo 已經認罪定讞，永遠走不出那座監獄。案子，結了。倖存者與家屬，終於等到了一個答案。 但隱私時代的另一個問題，才剛剛浮上檯面——當每一個人的 DNA，都可能在不知情之下被查詢、被比對、被識別，我們，又該如何保護自己？",
+      "narrIndex": 18,
+      "visual": [
+        "chart",
+        "real-photo"
+      ],
+      "imagePrompt": null
+    },
+    {
+      "id": "HOST-結尾",
+      "kind": "host",
+      "heading": "Pilot · 調查員出鏡",
+      "hostFunction": "解說員 — 結尾",
+      "narration": "四十年的等待，終於有了答案。 而我們每一個人，也都被推到了同一個問題面前——在這個基因可以被查詢、被比對的時代，隱私，還握在自己手裡嗎？ 我是 Pilot，我們，下一個案子見。",
+      "visual": [
+        "host"
+      ],
+      "imagePrompt": "解說員 Pilot 全螢幕定格出鏡（brand/assets/host-reference.png）"
+    }
+  ],
+  "intro": {
+    "dateLines": [
+      "1974–1986",
+      "加州"
+    ]
+  },
+  "ending": {
+    "question": "那麼問題來了——你，上傳過自己的祖先 DNA 嗎？此刻，又有誰，正看著你的遺傳密碼？",
+    "realFootage": true,
+    "credits": "感謝每一位被害人與倖存者，願你們的名字被記得，而不被消費。感謝所有不放棄的調查者。也感謝正在看的你——我們，下一個案子見。"
+  }
+}

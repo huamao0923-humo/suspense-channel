@@ -1,0 +1,17 @@
+{
+  "_note": "依旁白段 narrIndex（0 起算，僅正片段 [00]-[15]）指定真實場景/地點/物件/檔案搜尋詞。英文＋德文並列（Commons/Bundesarchiv 多德文檔，命中率高且貼題）。地圖段（2、11）由地圖接管不列；人名以 factcheck 校正拼寫。每段 realQueries 最終取前 3 詞。",
+  "0": ["Düsseldorf 1929 street night", "Düsseldorf Altstadt 1920er", "Weimarer Republik Straße bei Nacht"],
+  "1": ["Düsseldorf Mietshaus 1880er", "Düsseldorf working class tenement 1900", "Arbeiterfamilie Weimarer Republik"],
+  "3": ["Düsseldorf Schutzpolizei 1929", "Weimar Germany police station 1929", "Polizei Düsseldorf 1920er Bundesarchiv"],
+  "4": ["Flingern Düsseldorf 1920er Straße", "Düsseldorf Flingern historisch", "Weimar Germany newspaper crime 1929"],
+  "5": ["Neandertal Düsseldorf 1920er", "Neandertal Tal historisch", "Düsseldorf Umland Feld 1929"],
+  "6": ["Flehe Düsseldorf Kirmes historisch", "Düsseldorf Jahrmarkt 1920er", "Weimar era German fairground"],
+  "7": ["Düsseldorf Straße 1929 Herbst", "Weimar Germany police investigation 1929", "Tatort Feld Düsseldorf 1929"],
+  "8": ["Düsseldorf leere Straße Winter 1929", "Weimar era German residential street empty", "Düsseldorf Wohnviertel 1920er"],
+  "9": ["Düsseldorf Polizei Fahndung 1929", "Weimar police bulletin 1929", "Düsseldorf Zeitung 1929 Schlagzeile"],
+  "10": ["Postamt Deutschland 1930 innen", "vintage German letter envelope 1930", "Reichspost Brief 1930"],
+  "12": ["Landgericht Düsseldorf historisch", "Düsseldorf courthouse 1931", "Gerichtssaal Deutschland 1931"],
+  "13": ["Gerichtsurteil Deutschland 1931 Dokument", "Landgericht Düsseldorf Gebäude historisch", "German court verdict 1931"],
+  "14": ["Klingelpütz Gefängnis Köln historisch", "Köln Klingelpütz prison 1930s", "Gefängnis Deutschland 1930er außen"],
+  "15": ["Karl Berg Der Sadist 1932 Buch", "forensic psychology book 1930s", "Kriminologie Lehrbuch historisch"]
+}
