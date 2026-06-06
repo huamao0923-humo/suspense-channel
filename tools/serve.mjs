@@ -7,10 +7,11 @@
 // Claude 驅動的步驟（deep-research / story-arc / script-studio / production-package）會顯示「在 Claude Code 執行」指令，
 // 並依檔案存在自動偵測完成度——伺服器不代跑 Claude workflow（成本與隔離考量）。
 import { createServer } from 'node:http';
-import { readFileSync, writeFileSync, existsSync, readdirSync, statSync, createReadStream, openSync, mkdirSync, unlinkSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync, readdirSync, statSync, createReadStream, openSync, mkdirSync, unlinkSync, copyFileSync, renameSync } from 'node:fs';
 import { spawn, execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { dirname, join, extname, normalize } from 'node:path';
+import { appendManifest, categoryOf, fileSlug, SENSITIVE_RE, searchCommonsCandidates, downloadTo } from './fetch-real.mjs';
 
 const TOOLS = dirname(fileURLToPath(import.meta.url));
 const ROOT = dirname(TOOLS);
@@ -18,7 +19,7 @@ const WEB = join(ROOT, 'web');
 const CASES = join(ROOT, 'cases');
 const PORT = Number(process.env.PORT) || 8787;
 
-const MIME = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json; charset=utf-8', '.mp4': 'video/mp4', '.png': 'image/png', '.jpg': 'image/jpeg', '.svg': 'image/svg+xml', '.ico': 'image/x-icon' };
+const MIME = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.json': 'application/json; charset=utf-8', '.mp4': 'video/mp4', '.webm': 'video/webm', '.mov': 'video/quicktime', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp', '.gif': 'image/gif', '.svg': 'image/svg+xml', '.ico': 'image/x-icon' };
 
 // 渲染鎖：同時只跑一個 make-demo
 const render = { running: false, slug: null, log: join(ROOT, 'tools', 'build', 'render.log') };
@@ -77,8 +78,8 @@ function parseCases() {
       episode: has(slug, 'episode.json'),
       rendered: existsSync(join(WEB, 'media', `${slug}-demo.mp4`)),
     };
-    let title = slug, narr = 0, host = 0, chars = 0, subs = 0;
-    if (stages.episode) { try { const e = JSON.parse(readFileSync(join(CASES, slug, 'episode.json'), 'utf8')); title = e.title || slug; const sg = e.segments || []; narr = sg.filter(s => s.kind !== 'host').length; host = sg.filter(s => s.kind === 'host').length; for (const s of sg) { const t = s.narration || ''; chars += t.length; subs += t.split(/[。！？!?；;…\n]/).filter(x => x.trim()).length; } } catch { } }
+    let title = slug, narr = 0, host = 0, chars = 0, subs = 0, ep = null;
+    if (stages.episode) { try { const e = JSON.parse(readFileSync(join(CASES, slug, 'episode.json'), 'utf8')); title = e.title || slug; ep = e.ep != null ? e.ep : null; const sg = e.segments || []; narr = sg.filter(s => s.kind !== 'host').length; host = sg.filter(s => s.kind === 'host').length; for (const s of sg) { const t = s.narration || ''; chars += t.length; subs += t.split(/[。！？!?；;…\n]/).filter(x => x.trim()).length; } } catch { } }
     if (title === slug && stages.intake) { try { const m = readFileSync(join(CASES, slug, 'intake.md'), 'utf8').match(/^#\s*投稿素材\s*—\s*(.+)$/m); if (m) title = m[1].trim(); } catch { } }
     const docs = ['intake.md', 'dossier.md', 'factcheck.md', 'real-footage-sources.md', 'story-arc.md', 'script-natural.md', 'script-tts.md', 'legal-review.md', 'production/shotlist.md', 'production/image-prompts.md', 'production/seo-package.md', 'production/sources.md'].filter(d => has(slug, ...d.split('/')));
     const docMeta = {};
@@ -89,7 +90,11 @@ function parseCases() {
     const realLibTotal = realLib.images + realLib.video + realLib.docs;
     let video = null;
     if (stages.rendered) { try { const vs = statSync(join(WEB, 'media', `${slug}-demo.mp4`)); video = { bytes: vs.size, mtime: vs.mtimeMs }; } catch { } }
-    out.push({ slug, title, stages, narr, host, chars, subs, docs, docMeta, video, realLib, realLibTotal, status: sm[slug]?.status || '', note: sm[slug]?.note || '' });
+    // 最後更新日期＝所有產出檔（含成片）最新 mtime，供前端管理用
+    let updated = 0;
+    for (const d of docs) { if (docMeta[d] && docMeta[d].mtime > updated) updated = docMeta[d].mtime; }
+    if (video && video.mtime > updated) updated = video.mtime;
+    out.push({ slug, title, ep, stages, narr, host, chars, subs, docs, docMeta, video, updated, realLib, realLibTotal, status: sm[slug]?.status || '', note: sm[slug]?.note || '' });
   }
   return out;
 }
@@ -98,6 +103,136 @@ function parseCases() {
 const send = (res, code, body, type = 'application/json; charset=utf-8') => { res.writeHead(code, { 'Content-Type': type }); res.end(body); };
 const sendJson = (res, code, obj) => send(res, code, JSON.stringify(obj));
 function readBody(req) { return new Promise(r => { let b = ''; req.on('data', c => b += c); req.on('end', () => { try { r(JSON.parse(b || '{}')); } catch { r({}); } }); }); }
+
+// 串流任意檔（支援 Range，給影片可拖動）——slot-media 用；serveStatic 維持原樣不動。
+function streamFile(req, res, full) {
+  const type = MIME[extname(full).toLowerCase()] || 'application/octet-stream';
+  const size = statSync(full).size;
+  const range = req.headers.range;
+  if (range) {
+    const m = /bytes=(\d*)-(\d*)/.exec(range);
+    let start = m[1] ? parseInt(m[1]) : 0, end = m[2] ? parseInt(m[2]) : size - 1;
+    if (start > end || start >= size) return send(res, 416, '', 'text/plain');
+    res.writeHead(206, { 'Content-Type': type, 'Content-Range': `bytes ${start}-${end}/${size}`, 'Accept-Ranges': 'bytes', 'Content-Length': end - start + 1 });
+    return createReadStream(full, { start, end }).pipe(res);
+  }
+  res.writeHead(200, { 'Content-Type': type, 'Content-Length': size, 'Accept-Ranges': 'bytes' });
+  createReadStream(full).pipe(res);
+}
+
+// 估時（與 make-demo segment-manifest 同式：中文約 5.5 字/秒 + 段間停頓）
+const estSecSrv = (txt) => { const c = String(txt || '').replace(/\s+/g, '').length; return Math.round((c / 5.5 + 0.8) * 10) / 10; };
+const relRoot = (p) => { if (!p) return null; const r = String(p).replace(/\\/g, '/'); const base = ROOT.replace(/\\/g, '/').replace(/\/+$/, '') + '/'; return r.startsWith(base) ? r.slice(base.length) : r; };
+// 該槽在 build/img/<slug> 的最佳自動檔（mp4 > jpg > ai.jpg > 其他）
+function bestSlotFile(imgDir, n, k) {
+  for (const ext of ['mp4', 'jpg', 'ai.jpg', 'png', 'webp', 'webm', 'gif']) { const f = join(imgDir, `s${n}_${k}.${ext}`); if (existsSync(f)) return f; }
+  return null;
+}
+// 該槽手動覆寫檔（production/manual/sN_k.*）——最高優先
+function manualSlotFile(slug, n, k) {
+  const mdir = join(CASES, slug, 'production', 'manual');
+  for (const ext of ['png', 'webp', 'mp4', 'webm', 'jpg', 'jpeg', 'mov', 'gif']) { const f = join(mdir, `s${n}_${k}.${ext}`); if (existsSync(f)) return f; }
+  return null;
+}
+// .real 標記＝該手動覆寫是真實素材（重抓/挑片寫入），非 GPT 生圖手貼
+const manualRealMarker = (slug, n, k) => existsSync(join(CASES, slug, 'production', 'manual', `s${n}_${k}.real`));
+const slotMediaUrl = (slug, full) => full ? `/api/slot-media/${slug}?path=` + encodeURIComponent(relRoot(full)) : null;
+// 逐段素材：episode.json 骨架 ＋ 上次 render 的 segment-manifest（補來源/授權/query）＋ 硬碟實際槽檔（render 前後皆可看）
+function readSegments(slug) {
+  const ep = join(CASES, slug, 'episode.json');
+  if (!existsSync(ep)) return null;
+  let data; try { data = JSON.parse(readFileSync(ep, 'utf8')); } catch { return null; }
+  const imgDir = join(TOOLS, 'build', 'img', slug);
+  let man = null; const mp = join(CASES, slug, 'production', 'segment-manifest.json');
+  if (existsSync(mp)) { try { man = JSON.parse(readFileSync(mp, 'utf8')); } catch { } }
+  // 用 narrIndex / id 穩定對位（make-demo 會注入 INTRO/ENDING 合成段→manifest idx 與 episode.json 陣列索引不一致，不可用 idx 對）
+  const manByNarr = {}, manById = {};
+  if (man && Array.isArray(man.segments)) for (const sg of man.segments) { if (typeof sg.narrIndex === 'number') manByNarr[sg.narrIndex] = sg; if (sg.id) manById[sg.id] = sg; }
+  let audioOv = {}; try { audioOv = JSON.parse(readFileSync(join(CASES, slug, 'production', 'audio-overrides.json'), 'utf8')) || {}; } catch { }
+  const previewDir = join(TOOLS, 'build', 'preview', slug);
+  const isVid = (f) => !!f && /\.(mp4|webm|mov|gif)$/i.test(f);
+  const segments = (data.segments || []).map((seg, idx) => {
+    const n = seg.narrIndex, hasN = typeof n === 'number';
+    const mseg = (hasN ? manByNarr[n] : null) || (seg.id ? manById[seg.id] : null) || null;
+    const slots = [];
+    if (hasN) {
+      let kmax = (mseg && Array.isArray(mseg.slots)) ? mseg.slots.length : 0;
+      for (let k = 0; k < 12; k++) if (bestSlotFile(imgDir, n, k) || manualSlotFile(slug, n, k)) kmax = Math.max(kmax, k + 1);
+      if (kmax === 0) kmax = 1;
+      for (let k = 0; k < kmax; k++) {
+        const mslot = (mseg && mseg.slots) ? mseg.slots.find(x => x.k === k) : null;
+        const manF = manualSlotFile(slug, n, k), autoF = bestSlotFile(imgDir, n, k);
+        const manifestF = (mslot && mslot.file && existsSync(join(ROOT, mslot.file))) ? join(ROOT, mslot.file) : null;
+        const file = manF || autoF || manifestF;
+        const video = manF ? isVid(manF) : autoF ? isVid(autoF) : (mslot ? mslot.type === 'video' : (seg.visual || []).includes('video'));
+        const manReal = manF && manualRealMarker(slug, n, k);
+        slots.push({
+          k,
+          type: manF ? (video ? 'video' : 'image') : (mslot?.type || (autoF ? (video ? 'video' : 'image') : ((seg.visual || []).includes('video') ? 'video' : 'image'))),
+          tier: manF ? (manReal ? (mslot?.tier && mslot.tier !== 'manual' ? mslot.tier : 'real') : 'manual') : (mslot?.tier || 'unknown'),
+          provider: mslot?.provider || (manReal ? '重抓/挑片' : manF ? '手動上傳' : ''),
+          title: mslot?.title || (file ? file.split(/[\\/]/).pop() : ''),
+          creator: mslot?.creator || '', license: mslot?.license || '', source: mslot?.source || '',
+          query: mslot?.query || '', prompt: mslot?.prompt || seg.imagePrompt || '',
+          isManual: !!manF, video, media: slotMediaUrl(slug, file),
+          dur: (mslot && typeof mslot.dur === 'number') ? mslot.dur : null,
+          isFill: k > 0,   // k0＝主素材（依本段提示詞/真實詞）；k1+＝自動填充 B-roll
+        });
+      }
+    } else {
+      slots.push({ k: 0, type: (seg.visual && seg.visual[0]) || seg.kind, tier: 'composed', provider: '', title: '', creator: '', license: '', source: '', query: '', prompt: '', isManual: false, video: false, media: null });
+    }
+    const previewFile = hasN ? join(previewDir, `seg${n}.mp4`) : null;
+    return {
+      idx, id: seg.id, kind: seg.kind, narrIndex: hasN ? n : null, heading: seg.heading || '', narration: seg.narration || '', visual: seg.visual || [], dateLines: seg.dateLines || null,
+      durationEst: (mseg && typeof mseg.durationEst === 'number') ? mseg.durationEst : estSecSrv(seg.narration), slots,
+      originalAudio: hasN ? audioOv[String(n)] === 'original' : false,
+      preview: (previewFile && existsSync(previewFile)) ? slotMediaUrl(slug, previewFile) : null,
+    };
+  });
+  return { slug, title: data.title || slug, hasManifest: !!man, renderedAt: man?.renderedAt || null, segments };
+}
+
+// 清 manifest 該槽（刪除/歸檔後，讓 UI 不再顯示舊素材）
+function clearManifestSlot(slug, n, k) {
+  const mp = join(CASES, slug, 'production', 'segment-manifest.json');
+  if (!existsSync(mp)) return;
+  try {
+    const man = JSON.parse(readFileSync(mp, 'utf8'));
+    const sg = (man.segments || []).find(x => x.narrIndex === n);
+    if (sg && Array.isArray(sg.slots)) { const sl = sg.slots.find(x => x.k === k); if (sl) { sl.file = null; sl.title = ''; sl.provider = ''; sl.source = ''; sl.tier = 'unknown'; } }
+    writeFileSync(mp, JSON.stringify(man, null, 2), 'utf8');
+  } catch { }
+}
+// 設定 manifest 該槽欄位（挑片 commit 後更新來源/授權）
+function setManifestSlot(slug, n, k, fields) {
+  const mp = join(CASES, slug, 'production', 'segment-manifest.json');
+  if (!existsSync(mp)) return;
+  try {
+    const man = JSON.parse(readFileSync(mp, 'utf8'));
+    const sg = (man.segments || []).find(x => x.narrIndex === n);
+    if (!sg) return;
+    sg.slots = sg.slots || [];
+    let sl = sg.slots.find(x => x.k === k);
+    if (!sl) { sl = { k }; sg.slots.push(sl); sg.slots.sort((a, b) => a.k - b.k); }
+    Object.assign(sl, fields);
+    writeFileSync(mp, JSON.stringify(man, null, 2), 'utf8');
+  } catch { }
+}
+const intOk = (v) => Number.isInteger(v) && v >= 0 && v < 1000;
+const ymd = () => { const d = new Date(), p = (x) => String(x).padStart(2, '0'); return `${d.getFullYear()}${p(d.getMonth() + 1)}${p(d.getDate())}`; };
+// 啟動單槽/單段 make-demo（吃渲染鎖，仿 /api/render）。回 {code, body}。
+function startMakeDemo(args, slug) {
+  if (render.running) return { code: 409, body: { ok: false, error: '已有渲染/重抓進行中：' + render.slug } };
+  render.running = true; render.slug = slug;
+  const logFd = openSync(render.log, 'a');
+  const child = spawn(process.execPath, [join(TOOLS, 'make-demo.mjs'), '--slug', slug, ...args], { cwd: ROOT, stdio: ['ignore', logFd, logFd] });
+  child.on('exit', () => { render.running = false; render.slug = null; });
+  child.on('error', () => { render.running = false; render.slug = null; });
+  return { code: 200, body: { ok: true, started: slug, args } };
+}
+// 該槽目前實際檔（manual 覆寫優先，否則 build/img 自動快取）
+const currentSlotFile = (slug, n, k) => manualSlotFile(slug, n, k) || bestSlotFile(join(TOOLS, 'build', 'img', slug), n, k);
 
 function serveStatic(req, res, urlPath) {
   let rel = decodeURIComponent(urlPath.split('?')[0]);
@@ -135,6 +270,158 @@ const server = createServer(async (req, res) => {
         const full = normalize(join(CASES, slug, name));
         if (!full.startsWith(join(CASES, slug)) || !existsSync(full)) return send(res, 404, '找不到文件', 'text/plain; charset=utf-8');
         return send(res, 200, readFileSync(full, 'utf8'), 'text/plain; charset=utf-8');
+      }
+
+      // 逐段素材檢視台：回傳每段每槽素材（episode.json ＋ segment-manifest ＋ 硬碟槽檔合併）
+      if (path.startsWith('/api/segments/') && req.method === 'GET') {
+        const slug = path.replace('/api/segments/', '').replace(/\/$/, '');
+        if (!/^[a-z0-9-]+$/.test(slug)) return sendJson(res, 400, { error: 'bad slug' });
+        const r = readSegments(slug);
+        if (!r) return sendJson(res, 404, { error: 'no episode（請先 build-episode）' });
+        return sendJson(res, 200, r);
+      }
+
+      // 逐段素材檢視台：串流單槽素材（build/img、production/manual、real-library、preview 白名單內）
+      if (path.startsWith('/api/slot-media/') && req.method === 'GET') {
+        const slug = path.replace('/api/slot-media/', '').replace(/\/$/, '').split('?')[0];
+        if (!/^[a-z0-9-]+$/.test(slug)) return send(res, 400, 'bad slug', 'text/plain');
+        const rel = (new URL(url, 'http://x').searchParams.get('path') || '').replace(/\\/g, '/');
+        const full = normalize(join(ROOT, rel));
+        const allowed = [join(TOOLS, 'build', 'img', slug), join(CASES, slug, 'production', 'manual'), join(ROOT, 'assets', slug, 'real-library'), join(TOOLS, 'build', 'clips'), join(TOOLS, 'build', 'preview', slug)];
+        if (!allowed.some(a => full.startsWith(a)) || !existsSync(full) || statSync(full).isDirectory()) return send(res, 404, 'not found', 'text/plain');
+        return streamFile(req, res, full);
+      }
+
+      // 單槽重抓：改提示詞/換來源抓素材（spawn make-demo --only-slot，吃渲染鎖；UI 輪詢 /api/render-status）
+      if (path === '/api/slot/refetch' && req.method === 'POST') {
+        const { slug, seg, slot, mode, query, prompt } = await readBody(req);
+        if (!/^[a-z0-9-]+$/.test(slug || '')) return sendJson(res, 400, { ok: false, error: 'slug 不合法' });
+        if (!intOk(seg) || !intOk(slot)) return sendJson(res, 400, { ok: false, error: 'seg/slot 不合法' });
+        const args = ['--only-slot', `${seg}:${slot}`];
+        if (mode && ['video', 'real-photo', 'illust'].includes(mode)) args.push('--set-mode', mode);
+        if (query && String(query).trim()) args.push('--set-query', String(query).trim().slice(0, 200));
+        if (prompt && String(prompt).trim()) args.push('--set-prompt', String(prompt).trim().slice(0, 400));
+        const r = startMakeDemo(args, slug); return sendJson(res, r.code, r.body);
+      }
+
+      // 單槽 AI 重生（spawn make-demo --regen-slot）
+      if (path === '/api/slot/regen' && req.method === 'POST') {
+        const { slug, seg, slot, prompt } = await readBody(req);
+        if (!/^[a-z0-9-]+$/.test(slug || '')) return sendJson(res, 400, { ok: false, error: 'slug 不合法' });
+        if (!intOk(seg) || !intOk(slot)) return sendJson(res, 400, { ok: false, error: 'seg/slot 不合法' });
+        const args = ['--regen-slot', `${seg}:${slot}`];
+        if (prompt && String(prompt).trim()) args.push('--set-prompt', String(prompt).trim().slice(0, 400));
+        const r = startMakeDemo(args, slug); return sendJson(res, r.code, r.body);
+      }
+
+      // 刪除單槽：清 build/img 自動快取＋manual 覆寫＋manifest 該槽 file（退回空，待重抓/重渲）
+      if (path === '/api/slot/delete' && req.method === 'POST') {
+        const { slug, seg, slot } = await readBody(req);
+        if (!/^[a-z0-9-]+$/.test(slug || '') || !intOk(seg) || !intOk(slot)) return sendJson(res, 400, { ok: false, error: '參數不合法' });
+        if (render.running) return sendJson(res, 409, { ok: false, error: '渲染進行中，請稍後' });
+        const dirs = [join(TOOLS, 'build', 'img', slug), join(CASES, slug, 'production', 'manual')];
+        let removed = 0;
+        for (const dir of dirs) for (const ext of ['mp4', 'jpg', 'ai.jpg', 'png', 'webp', 'webm', 'mov', 'gif', 'jpeg']) {
+          const f = join(dir, `s${seg}_${slot}.${ext}`); if (existsSync(f)) { try { unlinkSync(f); removed++; } catch { } }
+        }
+        clearManifestSlot(slug, seg, slot);
+        return sendJson(res, 200, { ok: true, removed });
+      }
+
+      // 歸檔單槽：移到 production/_archive/（保留可復原），清 manifest 該槽
+      if (path === '/api/slot/archive' && req.method === 'POST') {
+        const { slug, seg, slot } = await readBody(req);
+        if (!/^[a-z0-9-]+$/.test(slug || '') || !intOk(seg) || !intOk(slot)) return sendJson(res, 400, { ok: false, error: '參數不合法' });
+        if (render.running) return sendJson(res, 409, { ok: false, error: '渲染進行中，請稍後' });
+        const arc = join(CASES, slug, 'production', '_archive'); mkdirSync(arc, { recursive: true });
+        const ts = ymd() + '-' + Date.now();
+        const dirs = [join(TOOLS, 'build', 'img', slug), join(CASES, slug, 'production', 'manual')];
+        let moved = 0;
+        for (const dir of dirs) for (const ext of ['mp4', 'jpg', 'ai.jpg', 'png', 'webp', 'webm', 'mov', 'gif', 'jpeg']) {
+          const f = join(dir, `s${seg}_${slot}.${ext}`);
+          if (existsSync(f)) { try { copyFileSync(f, join(arc, `s${seg}_${slot}.${ts}.${ext}`)); unlinkSync(f); moved++; } catch { } }
+        }
+        clearManifestSlot(slug, seg, slot);
+        return sendJson(res, 200, { ok: true, moved });
+      }
+
+      // 收進素材庫：把目前槽素材複製進 assets/<slug>/real-library/，追加 MANIFEST.csv（clearance=🟡待人工確認）
+      if (path === '/api/slot/save-to-library' && req.method === 'POST') {
+        const { slug, seg, slot } = await readBody(req);
+        if (!/^[a-z0-9-]+$/.test(slug || '') || !intOk(seg) || !intOk(slot)) return sendJson(res, 400, { ok: false, error: '參數不合法' });
+        const file = currentSlotFile(slug, seg, slot);
+        if (!file) return sendJson(res, 404, { ok: false, error: '此槽尚無素材可收藏' });
+        const ext = extname(file).slice(1).toLowerCase() || 'jpg';
+        const isVid = /^(mp4|webm|mov|gif)$/i.test(ext);
+        const RL = join(ROOT, 'assets', slug, 'real-library');
+        const dstDir = join(RL, isVid ? 'video' : 'images'); mkdirSync(dstDir, { recursive: true });
+        const base = file.split(/[\\/]/).pop();
+        const fname = `${ymd()}_real-${fileSlug('slot-' + seg + '-' + slot + '-' + base)}.${ext}`;
+        const dst = join(dstDir, fname);
+        try { if (!existsSync(dst)) copyFileSync(file, dst); } catch (e) { return sendJson(res, 500, { ok: false, error: String(e) }); }
+        try {
+          appendManifest(join(RL, 'MANIFEST.csv'), [{
+            filename: fname, type: isVid ? 'video' : 'image', category: categoryOf(base, isVid ? 'video' : 'image'),
+            description: `素材檢視台收藏（段 ${seg}.${slot}）`, source: 'segment-editor', source_url: '',
+            license_type: '待人工確認', attribution: 'see file page', commercial_ok: 'Y',
+            deidentify: SENSITIVE_RE.test(base) ? 'Y' : 'N', clearance: '🟡待人工確認', notes: '由素材檢視台收進庫',
+          }]);
+        } catch { }
+        return sendJson(res, 200, { ok: true, filename: fname });
+      }
+
+      // 挑片：列 Wikimedia Commons 候選（不下載），供 gallery 選一。query 預設＝該槽現有查詢詞。
+      if (path === '/api/slot/candidates' && req.method === 'GET') {
+        const q = new URL(url, 'http://x').searchParams;
+        const slug = (q.get('slug') || '').replace(/[^a-z0-9-]/g, '');
+        const query = (q.get('query') || '').trim();
+        if (!slug || !query) return sendJson(res, 400, { ok: false, error: '缺 slug 或 query' });
+        const list = await searchCommonsCandidates(query, { limit: 12 });
+        const cands = list.map(c => ({
+          url: c.url, title: c.title, license: c.license, creator: c.creator,
+          source: c.descriptionurl || c.url, video: /^video\//i.test(c.mime || ''), mime: c.mime || '', size: c.size || 0,
+        }));
+        return sendJson(res, 200, { ok: true, query, candidates: cands });
+      }
+
+      // 挑片 commit：下載選定候選 → manual 覆寫（sN_k.<ext>＋.real 標記＝真實、不烙示意圖）＋更新 manifest
+      if (path === '/api/slot/pick' && req.method === 'POST') {
+        const { slug, seg, slot, url: mediaUrl, video, license, creator, title, source } = await readBody(req);
+        if (!/^[a-z0-9-]+$/.test(slug || '') || !intOk(seg) || !intOk(slot)) return sendJson(res, 400, { ok: false, error: '參數不合法' });
+        if (!/^https?:\/\//.test(mediaUrl || '')) return sendJson(res, 400, { ok: false, error: 'url 不合法' });
+        const mdir = join(CASES, slug, 'production', 'manual'); mkdirSync(mdir, { recursive: true });
+        const m = String(mediaUrl).match(/\.([a-z0-9]+)(?:\?|$)/i);
+        const rawExt = (m ? m[1] : (video ? 'webm' : 'jpg')).toLowerCase();
+        const ext = video ? (/(webm|mp4|mov)/.test(rawExt) ? rawExt : 'webm') : (/(png|webp|gif|jpe?g)/.test(rawExt) ? rawExt.replace('jpeg', 'jpg') : 'jpg');
+        for (const e of ['mp4', 'webm', 'mov', 'png', 'jpg', 'jpeg', 'webp', 'gif', 'real']) { const f = join(mdir, `s${seg}_${slot}.${e}`); if (existsSync(f)) { try { unlinkSync(f); } catch { } } }
+        const dst = join(mdir, `s${seg}_${slot}.${ext}`);
+        // 圖片抓 Commons 縮放版（1920 寬）而非全解析度原圖（避免 20MB+ 拖慢渲染）；影片用原 url。
+        const dlUrl = (!video && title) ? `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(String(title))}?width=1920` : mediaUrl;
+        let okDl = await downloadTo(dlUrl, dst, { minBytes: 2000, timeoutMs: 60000 });
+        if (!okDl && dlUrl !== mediaUrl) okDl = await downloadTo(mediaUrl, dst, { minBytes: 2000, timeoutMs: 60000 });
+        if (!okDl) return sendJson(res, 500, { ok: false, error: '下載候選失敗' });
+        writeFileSync(join(mdir, `s${seg}_${slot}.real`), '', 'utf8');   // Commons＝真實、不烙示意圖
+        setManifestSlot(slug, seg, slot, { type: video ? 'video' : 'image', tier: 'real', provider: 'Commons-pick', title: title || '', creator: creator || '', license: license || '', source: source || mediaUrl, isManual: true, file: relRoot(dst) });
+        return sendJson(res, 200, { ok: true, file: `s${seg}_${slot}.${ext}` });
+      }
+
+      // 單段預覽：spawn make-demo --only-seg N（用已抓素材＋快取語音合一段預覽，吃渲染鎖）
+      if (path === '/api/segment/preview' && req.method === 'POST') {
+        const { slug, seg } = await readBody(req);
+        if (!/^[a-z0-9-]+$/.test(slug || '') || !intOk(seg)) return sendJson(res, 400, { ok: false, error: '參數不合法' });
+        const r = startMakeDemo(['--only-seg', String(seg)], slug); return sendJson(res, r.code, r.body);
+      }
+
+      // 設為原聲：標記該段改用影片原聲（寫 audio-overrides.json，整片重渲與單段預覽皆生效）
+      if (path === '/api/segment/set-original-audio' && req.method === 'POST') {
+        const { slug, seg, on } = await readBody(req);
+        if (!/^[a-z0-9-]+$/.test(slug || '') || !intOk(seg)) return sendJson(res, 400, { ok: false, error: '參數不合法' });
+        const dir = join(CASES, slug, 'production'); mkdirSync(dir, { recursive: true });
+        const p = join(dir, 'audio-overrides.json');
+        let ov = {}; try { ov = JSON.parse(readFileSync(p, 'utf8')) || {}; } catch { }
+        if (on) ov[String(seg)] = 'original'; else delete ov[String(seg)];
+        writeFileSync(p, JSON.stringify(ov, null, 2), 'utf8');
+        return sendJson(res, 200, { ok: true, original: !!on });
       }
 
       if (path === '/api/select' && req.method === 'POST') {
@@ -177,15 +464,17 @@ const server = createServer(async (req, res) => {
       }
 
       if (path === '/api/render' && req.method === 'POST') {
-        const { slug } = await readBody(req);
+        const { slug, voice } = await readBody(req);
         if (!/^[a-z0-9-]+$/.test(slug || '')) return sendJson(res, 400, { ok: false, error: 'slug 不合法' });
         if (render.running) return sendJson(res, 409, { ok: false, error: '已有渲染進行中：' + render.slug });
         render.running = true; render.slug = slug;
         const logFd = openSync(render.log, 'a');
-        const child = spawn(process.execPath, [join(TOOLS, 'make-demo.mjs'), '--slug', slug], { cwd: ROOT, stdio: ['ignore', logFd, logFd] });
+        // voice===false → 無語音版（PILOT_NOVOICE）：旁白靜音、畫面/字幕/BGM 照常；其餘（含 cockpit 既有渲染鈕）維持含語音
+        const env = { ...process.env, ...(voice === false ? { PILOT_NOVOICE: '1' } : {}) };
+        const child = spawn(process.execPath, [join(TOOLS, 'make-demo.mjs'), '--slug', slug], { cwd: ROOT, stdio: ['ignore', logFd, logFd], env });
         child.on('exit', () => { render.running = false; render.slug = null; });
         child.on('error', () => { render.running = false; render.slug = null; });
-        return sendJson(res, 200, { ok: true, started: slug });
+        return sendJson(res, 200, { ok: true, started: slug, voice: voice !== false });
       }
 
       if (path === '/api/render-status' && req.method === 'GET') {
@@ -260,7 +549,7 @@ const server = createServer(async (req, res) => {
         const mdir = join(CASES, slug, 'production', 'manual');
         const manual = existsSync(mdir) ? readdirSync(mdir) : [];
         const shots = (data.segments || []).filter(s => s.kind === 'narration')
-          .map(s => ({ n: s.narrIndex, heading: s.heading, manual: manual.filter(f => f.startsWith('s' + s.narrIndex + '_')) }));
+          .map(s => ({ n: s.narrIndex, heading: s.heading, manual: manual.filter(f => f.startsWith('s' + s.narrIndex + '_') && !f.endsWith('.real')) }));
         return sendJson(res, 200, { slug, title: data.title, shots });
       }
 

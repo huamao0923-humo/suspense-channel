@@ -8,6 +8,8 @@
   var activeCase = null;
   var activeStage = 'pick';
   var runPolling = false, renderPolling = false, lastWsSig = '';
+  var topicPage = 0;                                       // 選題庫分頁（0-based）
+  var TOPIC_PAGE_SIZE = 8;
   var wsDocOpen = null, wsDocsSig = '', wsDocText = '';   // 工作區資料檢視器：目前開啟的文件 / 文件清單簽章 / 最後內容（用於即時更新且不打斷捲動）
 
   function toast(msg, bad) {
@@ -135,6 +137,8 @@
     if (tp) { if (tp.country) meta.push(esc(tp.country)); if (tp.year) meta.push(esc(tp.year)); if (tp.legal) meta.push(esc(tp.legal)); }
     var done = ['research', 'arc', 'script', 'production', 'rendered'].filter(function (k) { return c.stages && c.stages[k]; }).length;
     var chips = '';
+    if (epLabel(c)) chips += '<span class="ov ep">' + epLabel(c) + '</span>';
+    if (fmtDate(c.updated)) chips += '<span class="ov">📅 ' + fmtDate(c.updated) + '</span>';
     if (tp && tp.score) chips += '<span class="ov score">雷達 ' + esc(tp.score) + '</span>';
     chips += '<span class="ov">進度 ' + done + '/5</span>';
     if (c.chars) chips += '<span class="ov">' + c.chars + ' 字</span>';
@@ -165,12 +169,24 @@
       by[t.slug] = { slug: t.slug, title: t.title, stages: {}, docs: [], narr: 0, host: 0, status: '', note: '' };
     });
     (state.cases || []).forEach(function (c) {
-      by[c.slug] = { slug: c.slug, title: c.title, stages: c.stages || {}, docs: c.docs || [], docMeta: c.docMeta || {}, narr: c.narr || 0, host: c.host || 0, chars: c.chars || 0, subs: c.subs || 0, video: c.video || null, status: c.status || '', note: c.note || '' };
+      by[c.slug] = { slug: c.slug, title: c.title, ep: c.ep, updated: c.updated, stages: c.stages || {}, docs: c.docs || [], docMeta: c.docMeta || {}, narr: c.narr || 0, host: c.host || 0, chars: c.chars || 0, subs: c.subs || 0, video: c.video || null, status: c.status || '', note: c.note || '' };
     });
     return Object.keys(by).map(function (k) { return by[k]; });
   }
   function getCase(slug) { var l = workflowList(); for (var i = 0; i < l.length; i++) if (l[i].slug === slug) return l[i]; return null; }
   function stageDone(c, key) { if (key === 'pick') return true; if (key === 'render') return !!(c && c.stages && c.stages.rendered); return !!(c && c.stages && c.stages[key]); }
+  // 案件目前所在階段（取已完成的最遠一階；供下拉選單一眼看出進度）
+  function caseStageLabel(c) {
+    var s = (c && c.stages) || {};
+    if (s.rendered) return '✅ 已渲染';
+    if (s.production) return '製作包';
+    if (s.script) return '腳本';
+    if (s.arc) return '故事編排';
+    if (s.research) return '研究';
+    return '待研究';
+  }
+  function epLabel(c) { return (c && c.ep != null) ? 'EP' + (c.ep < 10 ? '0' + c.ep : c.ep) : ''; }
+  function fmtDate(ms) { if (!ms) return ''; var d = new Date(ms), p = function (n) { return (n < 10 ? '0' : '') + n; }; return d.getFullYear() + '-' + p(d.getMonth() + 1) + '-' + p(d.getDate()); }
   function stageRunning(c, key) {
     if (!c) return false;
     if (WF[key]) return !!(state.claude && state.claude.running && state.claude.slug === c.slug && state.claude.step === key);
@@ -209,9 +225,17 @@
 
   function renderCaseSel() {
     var sel = $('caseSel'); if (!sel) return;
-    var l = workflowList();
+    var l = workflowList().slice().sort(function (a, b) {
+      var ae = a.ep == null ? 9999 : a.ep, be = b.ep == null ? 9999 : b.ep;   // 有集數的依序在前，未編號排後
+      return ae - be;
+    });
     if (!l.length) { sel.innerHTML = '<option value="">（尚無案件 — 先到選題勾選或投稿）</option>'; return; }
-    sel.innerHTML = l.map(function (c) { return '<option value="' + c.slug + '"' + (c.slug === activeCase ? ' selected' : '') + '>' + esc(c.title) + (stageDone(c, 'render') ? ' ✓' : '') + '</option>'; }).join('');
+    sel.innerHTML = l.map(function (c) {
+      var ep = epLabel(c), dt = fmtDate(c.updated);
+      var prefix = ep ? ep + ' · ' : '';
+      var suffix = '　〔' + caseStageLabel(c) + '〕' + (dt ? ' · ' + dt : '');
+      return '<option value="' + c.slug + '"' + (c.slug === activeCase ? ' selected' : '') + '>' + prefix + esc(c.title) + suffix + '</option>';
+    }).join('');
   }
   window._case = function (slug) { activeCase = slug; if (activeStage === 'pick') activeStage = 'research'; lastWsSig = ''; renderAll(); };
 
@@ -233,15 +257,27 @@
     var list = onlySel ? all.filter(function (t) { return t.selected; }) : all;
     if ($('topicCount')) $('topicCount').textContent = all.length ? (all.filter(function (t) { return t.selected; }).length + ' / ' + all.length + ' 已選') : '';
     if (!all.length) { box.innerHTML = '<p class="muted">選題庫空。連伺服器後讀 pipeline/radar-shortlist.md；或先在 Claude Code 跑 <code>case-radar</code>。</p>'; return; }
-    var rows = list.map(function (t) {
+    // 分頁：避免一次列出全部，太長不好找
+    var pages = Math.max(1, Math.ceil(list.length / TOPIC_PAGE_SIZE));
+    if (topicPage > pages - 1) topicPage = pages - 1;
+    if (topicPage < 0) topicPage = 0;
+    var start = topicPage * TOPIC_PAGE_SIZE;
+    var pageList = list.slice(start, start + TOPIC_PAGE_SIZE);
+    var rows = pageList.map(function (t) {
       var cb = '<input type="checkbox" ' + (t.selected ? 'checked' : '') + ' ' + (live ? '' : 'disabled') + ' onchange="_sel(' + t.rank + ',this.checked)">';
       var st = t.selected ? '<span class="pill sel">已加入清單 ↑</span>' : '<span class="pill">勾選以開始</span>';
       return '<tr class="' + (t.selected ? 'selrow' : '') + '"><td>' + cb + '</td><td class="num">' + t.rank + '</td>' +
         '<td><b>' + esc(t.title) + '</b><div class="sub2">' + esc(t.country) + ' · ' + esc(t.year) + ' · ' + esc(t.legal) + '</div><div class="hook">' + esc(t.hook) + '</div></td>' +
         '<td class="num"><span class="score">' + esc(t.score) + '</span></td><td>' + st + '</td></tr>';
     }).join('');
-    box.innerHTML = '<table class="tbl"><thead><tr><th></th><th>#</th><th>案件</th><th>分</th><th>狀態</th></tr></thead><tbody>' + rows + '</tbody></table>';
+    var pager = pages > 1 ? '<div class="pager">' +
+      '<button class="pgbtn" ' + (topicPage <= 0 ? 'disabled' : '') + ' onclick="_topicPage(-1)">‹ 上一頁</button>' +
+      '<span class="pginfo">第 ' + (topicPage + 1) + ' / ' + pages + ' 頁（共 ' + list.length + ' 題）</span>' +
+      '<button class="pgbtn" ' + (topicPage >= pages - 1 ? 'disabled' : '') + ' onclick="_topicPage(1)">下一頁 ›</button>' +
+      '</div>' : '';
+    box.innerHTML = '<table class="tbl"><thead><tr><th></th><th>#</th><th>案件</th><th>分</th><th>狀態</th></tr></thead><tbody>' + rows + '</tbody></table>' + pager;
   }
+  window._topicPage = function (d) { topicPage += d; renderTopics(); };
   window._sel = function (rank, selected) {
     api('/api/select', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ rank: rank, selected: selected }) })
       .then(function (r) { if (r.ok && r.j.ok) { toast(selected ? '已加入清單 #' + rank : '已移出 #' + rank); load(); } else { toast(r.j.error || '失敗', true); load(); } })
@@ -283,6 +319,10 @@
     }
     var feed = running ? '<div class="runwrap"><div class="runhead"><span class="dot"></span>即時活動</div><div class="feed" id="runlog">啟動中，等待第一個事件…</div></div>' : '';
     if (stage === 'script') return '<div class="wfact">' + act + '</div>' + feed + scriptEditorShell(c) + docShell(c, stage);
+    if (stage === 'production') {
+      var segLink = (c.stages && c.stages.episode) ? '<a class="btn ghost" href="segments.html?slug=' + encodeURIComponent(c.slug) + '" target="_blank">🎬 素材檢視 / 編輯（逐段素材包）</a>' : '';
+      return '<div class="wfact">' + act + segLink + '</div>' + feed + docShell(c, stage);
+    }
     return '<div class="wfact">' + act + '</div>' + feed + docShell(c, stage);
   }
   function renderStageBody(c) {
@@ -301,7 +341,7 @@
         '<span class="vchip">片長 <b id="vdur">—</b></span>' +
         (c.video && c.video.mtime ? '<span class="vchip sub2">渲染於 ' + fmtTime(c.video.mtime) + '</span>' : '') + '</div>';
       var vid = '<video class="wsvid" controls preload="metadata" src="media/' + c.slug + '-demo.mp4" onloadedmetadata="var e=document.getElementById(\'vdur\');if(e)e.textContent=Math.floor(this.duration/60)+\':\'+(\'0\'+Math.floor(this.duration%60)).slice(-2)"></video>';
-      var actions = '<div class="actions"><a class="btn ghost" href="episode.html?slug=' + encodeURIComponent(c.slug) + '">互動分鏡</a><a class="mini" href="media/' + c.slug + '-demo.mp4" download>下載 mp4</a></div>';
+      var actions = '<div class="actions"><a class="btn ghost" href="episode.html?slug=' + encodeURIComponent(c.slug) + '">互動分鏡</a><a class="btn ghost" href="segments.html?slug=' + encodeURIComponent(c.slug) + '" target="_blank">🎬 素材檢視 / 編輯</a><a class="mini" href="media/' + c.slug + '-demo.mp4" download>下載 mp4</a></div>';
       var src = (c.docs && c.docs.indexOf('production/sources.md') >= 0) ? '<div class="wsdocs"><div class="dlabel">🔗 來源清單與授權（sources.md）：</div><div class="wiki"><nav class="wnavbar"><button class="wnav on" onclick="_docInline(\'' + c.slug + '\',\'production/sources.md\',0)">🔗 來源</button></nav><article class="md" id="wsDoc"><p class="muted">載入中…</p></article></div></div>' : '';
       view = info + vid + actions + src;
     } else view = '<p class="muted">尚未產出影片。' + (s.episode ? '按上方「渲染影片」。' : '先「產生 episode 資料」再渲染。') + '</p>';
@@ -523,7 +563,7 @@
   };
 
   // ---- init ----
-  if ($('onlySel')) $('onlySel').addEventListener('change', renderTopics);
+  if ($('onlySel')) $('onlySel').addEventListener('change', function () { topicPage = 0; renderTopics(); });
   if ($('inBtn')) $('inBtn').addEventListener('click', window._intake);
   if ($('caseSel')) $('caseSel').addEventListener('change', function () { window._case(this.value); });
   setInterval(function () { load(); }, 8000);   // 自癒＋進度同步（工作區有變更才重建）

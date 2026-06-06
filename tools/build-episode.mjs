@@ -11,7 +11,7 @@ import { dirname, join } from 'node:path';
 
 const TOOLS = dirname(fileURLToPath(import.meta.url));
 const ROOT = dirname(TOOLS);
-const CHANNEL = 'Pilot 調查員';
+const CHANNEL = 'Pilot 調查列車';
 
 // 每段「畫面類型」標籤：中文 → 內部 key（make-demo 依此選素材來源）
 const VISUAL_MAP = { '調用影片': 'video', '真實圖片': 'real-photo', '生成圖片': 'illust', '生成圖表': 'chart', '地圖': 'map', '地圖串場': 'map', '解說員辦公桌': 'host' };
@@ -55,7 +55,7 @@ function parseScript(slug) {
   let cur = null;
   const flush = () => { if (cur) { sections.push(cur); cur = null; } };
   for (const raw of lines) {
-    const h = raw.match(/^##\s+\[(HOST-[^\]]+|INTRO|ENDING|\d+)\]\s*(.*)$/);
+    const h = raw.match(/^##\s+\[(HOST-[^\]]+|INTRO|ENDING|時間卡[^\]]*|TIME-[^\]]+|\d+)\]\s*(.*)$/);
     if (h) {
       flush();
       cur = { tag: h[1], rawTitle: h[2].trim(), body: [] };
@@ -94,6 +94,13 @@ function parseScript(slug) {
       ending = { question: sec.question || '', realFootage: true, credits: sec.credits || '' };
       continue;
     }
+    // 牛皮紙時間卡：中途年代/時間跨度轉場（牛皮紙＋打字機逐字敲出，~3–4s，無旁白）。
+    // 位置照它在腳本中出現的順序（通常緊接某個 [HOST] 列車長轉場之後）。
+    if (sec.tag.startsWith('時間卡') || sec.tag.startsWith('TIME')) {
+      const dateLines = sec.body.map(l => l.replace(/\[[^\]]*\]/g, '').trim()).filter(Boolean);
+      if (dateLines.length) segments.push({ id: sec.tag, kind: 'timecard', dateLines });
+      continue;
+    }
     const isHost = sec.tag.startsWith('HOST');
     // 去掉 [停頓][加重][放慢] 等演播提示，保留英文名字間的空白
     const narration = sec.body.map(l => l.replace(/\[[^\]]*\]/g, '')).join('').replace(/\s+/g, ' ').trim();
@@ -102,7 +109,7 @@ function parseScript(slug) {
       segments.push({
         id: sec.tag,
         kind: 'host',
-        heading: 'Pilot · 調查員出鏡',
+        heading: 'Pilot · 列車長出鏡',
         hostFunction: sec.rawTitle,
         narration,
         visual: ['host'],

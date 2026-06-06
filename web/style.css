@@ -131,6 +131,11 @@ h2.sec{font-size:15px;letter-spacing:3px;color:var(--dim);font-weight:600;
 .tbl td.num{font-family:var(--mono);color:var(--muted);text-align:center;white-space:nowrap}
 .tbl .sub2{color:var(--dim);font-size:11px;font-family:var(--mono);margin-top:3px}
 .tbl .hook{color:var(--muted);font-size:12px;margin-top:4px;max-width:560px}
+.pager{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:12px}
+.pgbtn{background:#0e1822;color:var(--muted);border:1px solid var(--line);border-radius:8px;padding:7px 14px;font-size:13px;cursor:pointer;font-family:var(--sans)}
+.pgbtn:hover:not(:disabled){border-color:var(--cold);color:var(--text)}
+.pgbtn:disabled{opacity:.4;cursor:default}
+.pginfo{font-size:12px;color:var(--dim);font-family:var(--mono)}
 .score{display:inline-block;font-family:var(--mono);font-weight:700;color:var(--accent);background:#1b1710;border:1px solid #4a3d22;border-radius:6px;padding:2px 7px}
 .pill{display:inline-block;font-size:11px;font-family:var(--mono);padding:2px 8px;border-radius:20px;border:1px solid var(--line);color:var(--dim)}
 .pill.sel{color:var(--warn);border-color:#4a3d22;background:#1b1710}
@@ -201,10 +206,10 @@ h2.sec{font-size:15px;letter-spacing:3px;color:var(--dim);font-weight:600;
 @media(max-width:720px){.wiki{grid-template-columns:1fr}.wnavbar{flex-direction:row;flex-wrap:wrap;border-right:none;border-bottom:1px solid var(--line)}}
 
 /* ============ 單案件工作台：選案 + 流程切換 ============ */
-.cockpitbar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:8px 0 18px;padding:12px 14px;background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--line);border-radius:12px}
-.casepick{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:8px;white-space:nowrap}
-#caseSel{background:var(--panel2);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:7px 10px;font-size:14px;max-width:360px}
-.stagebar{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.cockpitbar{display:flex;flex-direction:column;align-items:stretch;gap:10px;margin:8px 0 18px;padding:12px 14px;background:linear-gradient(180deg,var(--panel),var(--panel2));border:1px solid var(--line);border-radius:12px}
+.casepick{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:8px}
+#caseSel{flex:1;min-width:0;background:var(--panel2);color:var(--text);border:1px solid var(--line);border-radius:8px;padding:7px 10px;font-size:14px}
+.stagebar{display:flex;align-items:center;gap:4px;flex-wrap:wrap;padding-top:10px;border-top:1px solid var(--line)}
 .sarr{color:var(--dim);font-size:13px}
 .stab{background:#0e1822;color:var(--muted);border:1px solid var(--line);border-radius:8px;padding:8px 12px;font-size:13px;cursor:pointer;font-family:var(--sans);transition:all .15s}
 .stab:hover{border-color:var(--cold);color:var(--text)}
@@ -249,6 +254,7 @@ h2.sec{font-size:15px;letter-spacing:3px;color:var(--dim);font-weight:600;
 .ovtitle{font-size:20px;font-weight:700;color:var(--text);margin-right:6px}
 .ov{font-size:12px;font-family:var(--mono);color:var(--muted);background:#13202c;border:1px solid var(--line);border-radius:20px;padding:3px 10px}
 .ov.score{color:var(--accent);border-color:#4a3d22;background:#1b1710}
+.ov.ep{color:var(--cold);border-color:#23415a;background:#0f1d2a;font-weight:700;letter-spacing:.5px}
 .ovmeta{font-size:12px;color:var(--dim);font-family:var(--mono);margin-top:8px}
 .ovhook{font-size:13px;color:var(--cold);margin-top:8px;line-height:1.6}
 

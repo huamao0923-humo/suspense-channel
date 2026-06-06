@@ -1,0 +1,8 @@
+{
+  "place": "Hyde, Greater Manchester, England, UK",
+  "note": "地圖串場用可被 Nominatim 定位的乾淨地名。[02] 定場海德（終點站＝海德站）；[07] 職涯回溯如需多級推近 Todmorden→Hyde，設 PILOT_MAP_SINGLE=0，否則各自單張定場。對應列車站名：海德站。",
+  "places": [
+    "Hyde, Greater Manchester, England, UK",
+    "Todmorden, West Yorkshire, England, UK"
+  ]
+}

@@ -4,6 +4,7 @@ window.EPISODES = {
     "channel": "Pilot 調查員",
     "title": "達娜·愛爾蘭謀殺案（Dana Ireland）",
     "slug": "dana-ireland",
+    "ep": 4,
     "legalStatus": "**未解 / 已平反**——三名被告之定罪均已撤銷、平反；DNA 相符之嫌疑人未被逮捕、未被起訴謀殺、未經審判定罪，且已身亡，本案司法上仍未終結。",
     "segments": [
       {
@@ -307,9 +308,10 @@ window.EPISODES = {
     }
   },
   "esther-gonzalez-45": {
-    "channel": "Pilot 調查員",
+    "channel": "Pilot 調查列車",
     "title": "Esther Gonzalez 45 年冷案",
     "slug": "esther-gonzalez-45",
+    "ep": 6,
     "legalStatus": "未解 — 涉嫌人已身故；2024-11 由 Riverside County DA 公開指認，無法起訴",
     "segments": [
       {
@@ -327,9 +329,9 @@ window.EPISODES = {
       {
         "id": "HOST-01",
         "kind": "host",
-        "heading": "Pilot · 調查員出鏡",
+        "heading": "Pilot · 列車長出鏡",
         "hostFunction": "解說員 — 開場（背景＋帶入）",
-        "narration": "撥開迷霧，看見真相！大家好，我是 Pilot 調查員。今天的故事，是關於一個通過了測謊的男人——和一份四十五年後才開口的 DNA。一台機器替他擔保了清白；半個世紀後，另一種科學要把那個答案重新寫一次。 現在，讓我們回到一九七九年那個冬天。",
+        "narration": "各位旅客，歡迎登上 Pilot 調查列車，我是列車長。下一站，加州河濱縣——一樁等了四十五年的懸案。請坐穩，車要開了。我們，回到一九七九年。",
         "visual": [
           "host"
         ],
@@ -373,7 +375,7 @@ window.EPISODES = {
       {
         "id": "HOST-02",
         "kind": "host",
-        "heading": "Pilot · 調查員出鏡",
+        "heading": "Pilot · 列車長出鏡",
         "hostFunction": "解說員 — 轉場（懷疑 → 機器）",
         "narration": "一個報案的人、一個態度好辯的證人、一個和被害人家屬同校的同學。一九七九年的警察，本來，可以多問幾句。但他們選擇——讓一台機器，替他們做了這個決定。",
         "visual": [
@@ -418,13 +420,21 @@ window.EPISODES = {
       {
         "id": "HOST-03",
         "kind": "host",
-        "heading": "Pilot · 調查員出鏡",
+        "heading": "Pilot · 列車長出鏡",
         "hostFunction": "解說員 — 轉場（沉睡 → 重啟）",
         "narration": "四十四年。在這四十四年裡，這個家族，每天都在等。直到二〇二三年，有一群人決定——不再等下去。",
         "visual": [
           "host"
         ],
         "imagePrompt": "解說員 Pilot 全螢幕定格出鏡（brand/assets/host-reference.png）"
+      },
+      {
+        "id": "時間卡-01",
+        "kind": "timecard",
+        "dateLines": [
+          "二〇二三年",
+          "四十四年後"
+        ]
       },
       {
         "id": "07",
@@ -453,7 +463,7 @@ window.EPISODES = {
       {
         "id": "HOST-04",
         "kind": "host",
-        "heading": "Pilot · 調查員出鏡",
+        "heading": "Pilot · 列車長出鏡",
         "hostFunction": "解說員 — 反轉前的壓低",
         "narration": "四十五年前，一台測謊機，替這個男人擔保了清白。四十五年後， 一份從他自己屍體上採來的血液，要重新回答這個問題。這一次，回答的——不是機器，是 DNA。",
         "visual": [
@@ -511,9 +521,9 @@ window.EPISODES = {
       {
         "id": "HOST-結尾",
         "kind": "host",
-        "heading": "Pilot · 調查員出鏡",
+        "heading": "Pilot · 列車長出鏡",
         "hostFunction": "解說員 — 結尾",
-        "narration": "DNA 相符了。家屬說，他們終於有了閉幕感。但 Williamson 早就死了。沒有審判、沒有判決、沒有真正在法庭上展開的司法程序。所以——這算不算正義？這個問題，我想， 留給你。 我是 Pilot，我們，下一個案子見。",
+        "narration": "DNA 相符了。家屬說，他們終於有了閉幕感。但 Williamson 早就死了。沒有審判、沒有判決、沒有真正在法庭上展開的司法程序。所以——這算不算正義？這個問題，我想， 留給你。 河濱縣站，到了。有些問題，我們在這一站找到了答案；有些，只能帶往下一站，繼續問下去。 我是 Pilot，調查列車不會停。我們，下一站見。",
         "visual": [
           "host"
         ],
@@ -529,13 +539,14 @@ window.EPISODES = {
     "ending": {
       "question": "當一份證據遲到四十五年，它換回來的，是真相，還是只是一個閉幕的儀式？",
       "realFootage": true,
-      "credits": "感謝陪我走到這裡的你。願每一樁懸案，最後都有一個願意翻開檔案的人。Miao Channel — Pilot 調查員，下一個案子見。"
+      "credits": "感謝陪我走到這裡的你。願每一樁懸案，最後都有一個願意翻開檔案的人。Pilot 調查列車 — 下一站見。"
     }
   },
   "golden-state-killer": {
     "channel": "Pilot 調查員",
     "title": "黃金州殺手（Golden State Killer）",
     "slug": "golden-state-killer",
+    "ep": 2,
     "legalStatus": "已定讞（2020 年 8 月 21 日判無假釋終身監禁；本片於認罪定讞前之具體犯行一律以「涉嫌／被指控」陳述）",
     "segments": [
       {
@@ -823,10 +834,276 @@ window.EPISODES = {
       "credits": "感謝每一位被害人與倖存者，願你們的名字被記得，而不被消費。感謝所有不放棄的調查者。也感謝正在看的你——我們，下一個案子見。"
     }
   },
+  "harold-shipman": {
+    "channel": "Pilot 調查列車",
+    "title": "Harold Shipman「死亡醫生」案",
+    "slug": "harold-shipman",
+    "legalStatus": "已定讞 — 2000-01-31 Preston Crown Court 判決 15 項謀殺＋1 項偽造成立，終身監禁（whole life tariff）；2004-01-13 於獄中身亡。其餘個案與總受害人數為 Shipman Inquiry 調查報告之認定／推估。",
+    "segments": [
+      {
+        "id": "00",
+        "kind": "narration",
+        "heading": "冷開場鉤子",
+        "narration": "他是這個鎮上最受信賴的醫生。病人排隊掛他的號。老人家把他當成自己的孩子。一九九八年夏天，一位八十一歲的老太太，在家中安詳地走了。她的家庭醫生，簽下了死亡證明——自然死亡。一切，都該到此為止。可是三天後，她那位當律師的女兒，收到一份遺囑。一份，把母親的遺產，幾乎全部留給那位醫生的遺囑。 而她只看了一眼，就知道——這張紙，是假的。",
+        "narrIndex": 0,
+        "visual": [
+          "real-photo",
+          "illust"
+        ],
+        "imagePrompt": null
+      },
+      {
+        "id": "HOST-01",
+        "kind": "host",
+        "heading": "Pilot · 列車長出鏡",
+        "hostFunction": "解說員 — 開場（背景＋帶入）",
+        "narration": "各位旅客，歡迎登上 Pilot 調查列車，我是列車長。下一站，海德——英格蘭一座安靜的小鎮，一樁躲了二十餘年的懸案。一位最受信賴的家庭醫生，一份粗劣偽造的遺囑，和一個沒有人在看的體制。請坐穩，車要開了。 現在，讓我們回到一九九八年那個夏天。",
+        "visual": [
+          "host"
+        ],
+        "imagePrompt": "解說員 Pilot 全螢幕定格出鏡（brand/assets/host-reference.png）"
+      },
+      {
+        "id": "01",
+        "kind": "narration",
+        "heading": "信任：一位受社區愛戴的家庭醫生",
+        "narration": "海德鎮上，有一位全科醫生——Harold Shipman。他在診所工作，病患排隊掛號。他記得每一位老人的名字，他們也信任他的每一個決定。沒有人懷疑。怎麼會呢？一位受過正規培訓、領有執業執照、為社區服務了二十多年的醫生，誰會去懷疑？信任，就這樣，每天在診所的走廊裡，一點一點堆積。",
+        "narrIndex": 1,
+        "visual": [
+          "real-photo",
+          "illust"
+        ],
+        "imagePrompt": null
+      },
+      {
+        "id": "02",
+        "kind": "narration",
+        "heading": "發現：一九九八年夏，Kathleen Grundy 在家中離世",
+        "narration": "英格蘭，西北部，大曼徹斯特，海德。 一九九八年六月二十四日。八十一歲的 Kathleen Grundy，曾是海德的前市長夫人，那天在家中客廳被發現已經去世。身體安詳，沒有掙扎的跡象。Shipman 醫生簽下了死亡證明——自然死亡。一場喪禮，一句安慰的話，一個人的一生，看似就這樣走到了盡頭。誰都以為，故事到此結束。",
+        "narrIndex": 2,
+        "visual": [
+          "map"
+        ],
+        "imagePrompt": null
+      },
+      {
+        "id": "03",
+        "kind": "narration",
+        "heading": "疑點：律師女兒收到一份假遺囑",
+        "narration": "但是，Grundy 有一個女兒——Angela Woodruff。她本身就是律師。一份新的遺囑出現了。上面寫著，Grundy 大部分的遺產——大約三十七萬五千英鎊——要留給 Shipman 醫生。Woodruff 只需要看一眼。紙張的品質、打字機的磨損、簽名的筆畫——她看過上千份文件，她知道什麼叫真實。這一份，不是。 在她眼裡，這張遺囑，被粗劣地偽造了。一位當律師的女兒，一眼識破一份假遺囑。但你可能不知道——在這份遺囑之前，警訊，其實早就響過一次。沒有人聽。",
+        "narrIndex": 3,
+        "visual": [
+          "real-photo",
+          "illust"
+        ],
+        "imagePrompt": null
+      },
+      {
+        "id": "HOST-02",
+        "kind": "host",
+        "heading": "Pilot · 列車長出鏡",
+        "hostFunction": "解說員 — 轉場（警訊被放過 → 回溯職涯）",
+        "narration": "火化的表格，堆了起來。一位醫生提出疑慮。警察，來過一次。然後，檔案，合上了。可是這個人，是怎麼一步步走到這裡的？要明白，得往回看——看一九七六年。",
+        "visual": [
+          "host"
+        ],
+        "imagePrompt": "解說員 Pilot 全螢幕定格出鏡（brand/assets/host-reference.png）"
+      },
+      {
+        "id": "04",
+        "kind": "narration",
+        "heading": "警訊：1998 年 3 月，同業醫生的通報",
+        "narration": "故事，要先回到三個月前。一九九八年三月。海德還是春天。附近 Brooke 診所有一位全科醫生，名叫 Linda Reynolds。她在整理同行送來的火化申請表。一個名字，出現得異常頻繁——Shipman。而且，這些需要火化的死者，幾乎都是同一種人：年長的女性。依官方 Shipman Inquiry 調查報告記載，一九九八年三月二十四日，Reynolds 醫生把這份疑慮，向驗屍官 John Pollard 報告了——病患死亡的數量異常，火化表格的數量，也異常。她盡到了一個同行的責任。她，說出來了。",
+        "narrIndex": 4,
+        "visual": [
+          "real-photo",
+          "illust"
+        ],
+        "imagePrompt": null
+      },
+      {
+        "id": "05",
+        "kind": "narration",
+        "heading": "失手：一九九八年四月，第一次調查結案",
+        "narration": "警察來了。依官方調查報告，這次調查由 Detective Inspector David Smith 領導、Chief Superintendent David Sykes 監督，團隊進入海德。他們收集證據，他們問詢。他們想弄清楚，為什麼這位醫生的病患死亡率，那麼高。然後，一九九八年四月十七日。檔案，合上。調查結案，理由是——無實質依據。找不到足夠的證據。Shipman 醫生，繼續執業。",
+        "narrIndex": 5,
+        "visual": [
+          "real-photo",
+          "illust"
+        ],
+        "imagePrompt": null
+      },
+      {
+        "id": "06",
+        "kind": "narration",
+        "heading": "代價：官方調查事後的批評",
+        "narration": "但是多年以後，官方公開調查，回過頭來檢視了這一次失手。依 Shipman Inquiry 調查報告的認定：這次調查派出了經驗不足的警官；報告並指出，如果當初調查做得更深入，至少三名病患，可能會被救下來。至少三個人。調查報告的措辭很克制。但意思，很清楚。一個本應保護人的程序，反而成了讓事情繼續下去的空窗。警察來了，又走了。檔案，在一九九八年四月十七日合上。而這個人，還有時間。要明白他怎麼躲了這麼久，得回到更早的地方。",
+        "narrIndex": 6,
+        "visual": [
+          "real-photo",
+          "chart"
+        ],
+        "imagePrompt": null
+      },
+      {
+        "id": "07",
+        "kind": "narration",
+        "heading": "回溯：從諾丁罕到海德的職涯",
+        "narration": "Harold Shipman，一九四六年一月，生於英格蘭諾丁罕。一九七〇年，他自里茲醫學院畢業，進入醫療體制，在 Pontefract General Infirmary 擔任初級醫師。一九七四年，他離開 Pontefract，轉向全科醫療。他來到西約克郡的小鎮 Todmorden，在 Abraham Ormerod Medical Centre，接下他第一份全科醫生的職位。這是一個轉折點。獨立行醫，親手掌握病患。一個年輕醫生的新起點。依 Shipman Inquiry 調查報告事後的認定，最早的疑似殺人，可以追溯到更早的一九七一年。但那是多年以後，調查報告才回頭認定的事——在當時，沒有人知道。",
+        "narrIndex": 7,
+        "visual": [
+          "map"
+        ],
+        "imagePrompt": null
+      },
+      {
+        "id": "08",
+        "kind": "narration",
+        "heading": "前科：一九七五年，偽造處方被查獲",
+        "narration": "一九七五年。Shipman 的合夥人，發現了異常。他在為自己偽造處方——一種叫配西汀的管制鴉片類藥物。依法院後來的紀錄，他以詐欺的方式取得這些藥物，供自己使用。他被查獲了。這，是犯罪。以詐欺取得管制藥物、非法持有、偽造處方——多項罪名。",
+        "narrIndex": 8,
+        "visual": [
+          "real-photo",
+          "illust"
+        ],
+        "imagePrompt": null
+      },
+      {
+        "id": "09",
+        "kind": "narration",
+        "heading": "輕罰：一九七六年，那個只罰六百英鎊的決定",
+        "narration": "一九七六年二月。Halifax 治安法院。Shipman 認罪。他承認了。他並且請求法庭，併案考量另外七十四項類似的罪行—— 也就是說，不是一次。是很多次。一次又一次地偽造處方。法庭最後的判決，是什麼？罰款，六百英鎊。一段短暫的戒癮治療。沒有除名。沒有撤銷執照。沒有特別的監督。只有，一張罰單。醫學總會真正把他自醫療登記冊除名，要等到二十四年以後，他被定罪之後。",
+        "narrIndex": 9,
+        "visual": [
+          "real-photo",
+          "illust"
+        ],
+        "imagePrompt": null
+      },
+      {
+        "id": "10",
+        "kind": "narration",
+        "heading": "隱身：一九七七年遷往海德，無人在看",
+        "narration": "一九七七年十月一日，藥物康復之後，Shipman 獲准重返執業。他搬到了一個更大的地方——大曼徹斯特，一個叫海德的鎮子。Donneybrook Medical Centre。從這一刻起，一個曾經因為管制藥物犯罪被定罪的醫生，重新獲得了自由。沒有特別的監督。沒有每月的檢查。沒有人，在看著他。 一個越受信任的人，越容易藏起來。一個曾經因為藥物被定罪的醫生，本該被盯著。可是制度轉過了身。",
+        "narrIndex": 10,
+        "visual": [
+          "real-photo",
+          "illust"
+        ],
+        "imagePrompt": null
+      },
+      {
+        "id": "11",
+        "kind": "narration",
+        "heading": "露餡：律師女兒的決定",
+        "narration": "現在，回到一九九八年。那份假遺囑，在律師 Angela Woodruff 的手中。她沒有只是上報。她決定，做得更多。她向警方提交了證據。她要求——母親的遺體，要被挖掘，要被重新驗屍。因為她心裡清楚：如果這份遺囑是假的，那麼，那張死亡證明呢？",
+        "narrIndex": 11,
+        "visual": [
+          "real-photo",
+          "illust"
+        ],
+        "imagePrompt": null
+      },
+      {
+        "id": "12",
+        "kind": "narration",
+        "heading": "物證：致命的嗎啡，與一台舊打字機",
+        "narration": "遺體被挖掘出來。法醫重新檢驗。 化驗結果出來了：Grundy 的遺體裡，含有致命劑量的嗎啡——也就是 diamorphine。依法院認定，這致命的注射，發生在 Shipman 最後一次到訪後的三小時之內。與此同時，警方搜索了 Shipman 的住處。他們找到一台舊的打字機。經鑑識檢驗，這台機器，被證實，就是製作那份偽造遺囑的工具。",
+        "narrIndex": 12,
+        "visual": [
+          "real-photo",
+          "illust"
+        ],
+        "imagePrompt": null
+      },
+      {
+        "id": "13",
+        "kind": "narration",
+        "heading": "竄改：被事後改寫的病歷",
+        "narration": "調查也延伸到了 Shipman 的電腦系統。依法院審理時呈現的證據，他的病歷記錄裡，把 Grundy 描述成一個「嗎啡成癮者」。但記錄顯示，這些條目，是在 Grundy 死亡之後，才被輸入進去的。它們不是診斷。 在法庭上，它們被認定為偽造。當人們把那具棺木打開的時候，他們找到的東西，將讓這位醫生，永遠失去自由。",
+        "narrIndex": 13,
+        "visual": [
+          "real-photo",
+          "chart"
+        ],
+        "imagePrompt": null
+      },
+      {
+        "id": "14",
+        "kind": "narration",
+        "heading": "逮捕：案件浮出水面",
+        "narration": "一九九八年九月七日。Shipman 被逮捕。因為他，是 Kathleen Grundy 一案的嫌疑人。但警方在這一刻，開始擴大視野。如果 Grundy 案是這樣，那麼還有多少個被簽下「自然死亡」的死亡，其實並不自然？二十餘年無人察覺的死亡，最後不是敗給目擊者，不是敗給病理報告——而是敗給一張，他自己偽造的、粗劣的遺囑。一位醫生二十年的執業生涯，開始被一份一份重新打開。",
+        "narrIndex": 14,
+        "visual": [
+          "real-photo",
+          "illust"
+        ],
+        "imagePrompt": null
+      },
+      {
+        "id": "HOST-03",
+        "kind": "host",
+        "heading": "Pilot · 列車長出鏡",
+        "hostFunction": "解說員 — 轉場（偵破完成 → 進入審判）",
+        "narration": "現在，所有的線索，都指向了他。但你要知道——要證明謀殺，尤其是殺害一個已經下葬的人，從來，都不簡單。法庭上，會發生什麼？",
+        "visual": [
+          "host"
+        ],
+        "imagePrompt": "解說員 Pilot 全螢幕定格出鏡（brand/assets/host-reference.png）"
+      },
+      {
+        "id": "15",
+        "kind": "narration",
+        "heading": "審判：定罪、終身監禁、與最後的結局",
+        "narration": "一九九九年十月五日。Preston Crown Court 開審。法官，Mr Justice Forbes。控方列舉證據——那台打字機、被竄改的記錄、致命的嗎啡。Angela Woodruff 出庭作證。二〇〇〇年一月三十一日。經過六天的審議，陪審團，達成了一致的裁定。 十五項謀殺罪，加上一項偽造罪。 全部，成立。法院判決：終身監禁，附終身監禁令——whole life tariff。這意味著，他將在獄中，度過餘生。二〇〇〇年二月十一日，醫學總會——GMC——正式把他自醫療登記冊除名。他，再也不是醫生了。二〇〇四年一月十三日，就在五十八歲生日的前一天，Shipman 在 Wakefield 監獄的牢房裡，上吊身亡。他帶走的東西，再也無法在法庭上被追問。",
+        "narrIndex": 15,
+        "visual": [
+          "video",
+          "real-photo"
+        ],
+        "imagePrompt": null
+      },
+      {
+        "id": "16",
+        "kind": "narration",
+        "heading": "反思：受害者的廓形，與一個沒有人在看的體制",
+        "narration": "但故事，並沒有在判決那天結束。一場官方的、耗時數年的公開調查——Shipman Inquiry——開始檢視他整個職涯。從一九七四年，到一九九八年。從 Todmorden，到海德。每一個死亡，每一份記錄。調查報告的結論，讓人窒息。法院定罪的，是十五人。但 Shipman Inquiry 調查報告推估，他很可能奪走了——大約二百一十五到二百五十條人命。這個數字，來自官方調查報告的推估。而它指向的，多半是同一種人：年長的、獨居的女性。為什麼這麼多年，沒有人在看？因為他們看起來，就「應該」走了——年紀大了，自然衰老。火化了。埋葬了。簽上自然死亡。結束了。沒有人去問，為什麼一個醫生的病患死亡率，遠遠高於其他人。沒有人統計，沒有人比對，沒有人，盯著。直到一份粗劣的假遺囑，戳破了二十年的信任。",
+        "narrIndex": 16,
+        "visual": [
+          "real-photo",
+          "chart"
+        ],
+        "imagePrompt": null
+      },
+      {
+        "id": "HOST-結尾",
+        "kind": "host",
+        "heading": "Pilot · 列車長出鏡",
+        "hostFunction": "解說員 — 結尾",
+        "narration": "兩百多條人命的疑問，最後，敗給了一張假遺囑。這不是巧合。這是一個體制，如何讓「信任」這兩個字，被一個人，慢慢地用掉。一個制度給了他完整的自由，卻沒有任何人，在看。海德站，到了。有些問題，我們在這一站找到了答案；有些——你信任的那個人，真的在保護你嗎？——只能帶往下一站。 我是 Pilot，調查列車不會停。我們，下一站見。",
+        "visual": [
+          "host"
+        ],
+        "imagePrompt": "解說員 Pilot 全螢幕定格出鏡（brand/assets/host-reference.png）"
+      }
+    ],
+    "intro": {
+      "dateLines": [
+        "一九九八年 六月",
+        "英格蘭 大曼徹斯特 海德"
+      ]
+    },
+    "ending": {
+      "question": "如果你每天信任的那個人，正好就是掌握你生命的那個人——你，要怎麼知道他沒有背叛你？",
+      "realFootage": true,
+      "credits": "感謝陪我走到這一站的你。願每一個被輕輕簽下「自然死亡」的名字，都有人願意，再看一眼。Pilot 調查列車 — 下一站見。"
+    }
+  },
   "peter-kurten": {
     "channel": "Pilot 調查員",
     "title": "彼得·庫爾滕（杜塞道夫吸血鬼）",
     "slug": "peter-kurten",
+    "ep": 3,
     "legalStatus": "**已定讞**（1931 年 4 月 22 日判決，9 項謀殺、7 項謀殺未遂罪成立；1931 年 7 月 2 日執行）",
     "segments": [
       {
@@ -1081,6 +1358,7 @@ window.EPISODES = {
     "channel": "Pilot 調查員",
     "title": "雪鎮謀殺案（Snowtown Murders / Bodies in Barrels）",
     "slug": "snowtown-murders",
+    "ep": 1,
     "legalStatus": "已定讞（Bunting 11 項謀殺、Wagner 10 項謀殺，2003-09-08 定讞，2005-05 上訴駁回，均無假釋終身監禁；部分受害者死因法律上未定罪——見內文但書）",
     "segments": [
       {
@@ -1344,6 +1622,7 @@ window.EPISODES = {
     "channel": "Pilot 調查員",
     "title": "制服下的祕密（Stephanie Lazarus 案）",
     "slug": "stephanie-lazarus",
+    "ep": 5,
     "legalStatus": "已定讞（2012 年陪審團認定一級謀殺成立，判 27 年至無期徒刑；2025/2/12 假釋遭駁回）",
     "segments": [
       {
@@ -1581,11 +1860,11 @@ window.CASES = [
     "hasEpisode": false
   },
   {
-    "slug": "golden-state-killer",
+    "slug": "golden-state-killer (ep002)",
     "title": "黃金州殺手案（Golden State Killer）",
-    "status": "成片完成 ✅（VoxCPM 簽名聲線）",
-    "note": "`web/media/golden-state-killer-demo.mp4`（746s／144 字幕／VoxCPM2 簽名聲線配音）；footage＝Openverse CC＋Commons 真實素材（未設 PEXELS_KEY）。real-library 36 檔已指派 shotlist。發布前須人工確認真實素材授權＋關卡2/3 複核",
-    "hasEpisode": true
+    "status": "成片完成 ✅（新流程重製）",
+    "note": "`web/media/golden-state-killer-demo.mp4`（718s／222 字幕／VoxCPM2 簽名聲線／25 段腳本）。**16 段真實影片**（YouTube-CC：受害者社區/門鎖/Exeter警局/兇器/犯案街景/IBGITD書封/鑑識證物/基因族譜，皆 CLIP 配對）＋real-library 真兇 mugshot/FBI素描/EAR-ONS信件/2018記者會＋Pexels 動態氛圍。已套 ②靜圖偵測＋③recap黑名單、PEXELS+YouTube key（.env）。發布前須確認 clearance＋關卡2/3 複核",
+    "hasEpisode": false
   },
   {
     "slug": "peter-kurten (ep003)",
@@ -1611,6 +1890,20 @@ window.CASES = [
   {
     "slug": "esther-gonzalez-45",
     "title": "Esther Gonzalez 45 年冷案",
+    "status": "",
+    "note": "",
+    "hasEpisode": true
+  },
+  {
+    "slug": "golden-state-killer",
+    "title": "黃金州殺手（Golden State Killer）",
+    "status": "",
+    "note": "",
+    "hasEpisode": true
+  },
+  {
+    "slug": "harold-shipman",
+    "title": "Harold Shipman「死亡醫生」案",
     "status": "",
     "note": "",
     "hasEpisode": true

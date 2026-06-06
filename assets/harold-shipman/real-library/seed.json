@@ -1,0 +1,104 @@
+{
+  "categories": [
+    "Crime",
+    "Serial killers",
+    "Criminal trials",
+    "Medical crimes",
+    "British criminal cases",
+    "Court cases",
+    "Mugshots",
+    "Crime scenes",
+    "Medical history",
+    "Health and medicine",
+    "General practice",
+    "Preston",
+    "Greater Manchester",
+    "Todmorden",
+    "1990s",
+    "2000s"
+  ],
+  "queries": [
+    "Shipman Inquiry official reports National Archives",
+    "Preston Crown Court 1999-2000 trial photographs",
+    "Todmorden 1990s historic photographs Calderdale",
+    "National Library of Medicine history medical photographs public domain",
+    "Wikimedia Commons serial killer mugshots CC-BY-SA",
+    "Greater Manchester Police 1990s archive photographs",
+    "Harold Shipman trial BBC documentary archive",
+    "UK general practice doctor 1990s photograph historic",
+    "Medical examiner coroner 1990s public domain photograph",
+    "Shipman inquiry trial transcript Preston County Court",
+    "British newspaper archive 1990s Shipman trial coverage",
+    "Historic England Preston courtroom building photograph",
+    "Todmorden town street photographs 1990s archive",
+    "Magnum Photos NHS medical photography 1990",
+    "Government medical records archives 1990s",
+    "UK court reporting trial photographs guidelines",
+    "Greater Manchester Police Museum archive",
+    "Pennine Horizons Digital Archive Todmorden",
+    "Shipman public inquiry Dame Janet Smith report",
+    "Internet Archive Shipman Inquiry documents"
+  ],
+  "avoidTerms": [
+    "modern media harbour",
+    "Medienhafen",
+    "contemporary bridge",
+    "Rheinturm",
+    "construction site",
+    "modern television tower",
+    "recent renovation",
+    "2010s",
+    "2015",
+    "2020",
+    "contemporary courthouse",
+    "modern courtroom",
+    "recent building",
+    "contemporary medical facility",
+    "digital technology",
+    "modern hospital",
+    "contemporary NHS",
+    "present day"
+  ],
+  "institutions": [
+    {
+      "name": "The National Archives (UK)",
+      "url": "https://discovery.nationalarchives.gov.uk/details/r/C16350",
+      "license": "UK Crown Copyright – Open Government Licence (文字內容); 影像查閱可能需費用"
+    },
+    {
+      "name": "Greater Manchester Police Museum & Archives",
+      "url": "https://gmpmuseum.co.uk/",
+      "license": "警察機構內部檔案; 需正式申請; 受數據保護限制"
+    },
+    {
+      "name": "National Library of Medicine (NLM)",
+      "url": "https://www.nlm.nih.gov/hmd/collections/photos.html",
+      "license": "US Government Public Domain (CC0)"
+    },
+    {
+      "name": "Library of Congress (LOC) Prints & Photographs",
+      "url": "https://www.loc.gov/pictures/",
+      "license": "US Government Public Domain (CC0)"
+    },
+    {
+      "name": "Pennine Horizons Digital Archive",
+      "url": "https://penninehorizons.org/",
+      "license": "混合授權; 需與檔案館確認個別使用權"
+    },
+    {
+      "name": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/",
+      "license": "CC0 / CC-BY-SA 4.0 (按個別檔案)"
+    },
+    {
+      "name": "UK Government Publishing Service (GOV.UK)",
+      "url": "https://assets.publishing.service.gov.uk/",
+      "license": "UK Crown Copyright – Open Government Licence"
+    },
+    {
+      "name": "Internet Archive",
+      "url": "https://archive.org/",
+      "license": "視原始出版者; 部分可能為 Creative Commons"
+    }
+  ]
+}

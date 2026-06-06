@@ -1,0 +1,78 @@
+{
+  "categories": [
+    "California in the 20th century",
+    "California Highways and Public Works",
+    "United States in the 1970s",
+    "Historic road signs in the United States",
+    "United States law enforcement",
+    "Murder victims from the United States",
+    "Crime scenes",
+    "FBI records",
+    "California State Archives",
+    "Riverside County, California"
+  ],
+  "queries": [
+    "California 1979 rural highway Highway 243 Beaumont Banning",
+    "Riverside County California 1970s small town landscape",
+    "FBI polygraph test 1970s 1980s equipment investigation",
+    "forensic genealogy DNA cold case 1979",
+    "California police investigation 1979 archive photography",
+    "Highway 243 Banning Idyllwild scenic drive 1970s historical",
+    "Beaumont California 1979 historic photograph",
+    "snowpack mountain California 1979 winter landscape",
+    "San Bernardino National Forest 1970s access roads",
+    "Riverside County Sheriff 1979 investigation equipment"
+  ],
+  "avoidTerms": [
+    "Medienhafen",
+    "Rheinturm",
+    "Düsseldorf modern",
+    "construction site",
+    "Ausgrabung",
+    "2010",
+    "2015",
+    "2020",
+    "2024",
+    "contemporary street view",
+    "modern development",
+    "2020s infrastructure",
+    "current bridge",
+    "new media center",
+    "victim face",
+    "true crime documentary",
+    "dramatization",
+    "recreation"
+  ],
+  "institutions": [
+    {
+      "name": "Federal Bureau of Investigation (FBI)",
+      "url": "https://vault.fbi.gov/",
+      "license": "Public Domain (Federal)"
+    },
+    {
+      "name": "California State Archives",
+      "url": "https://www.sos.ca.gov/archives/collections/photographs",
+      "license": "Public Domain/CC licenses (varies)"
+    },
+    {
+      "name": "National Archives and Records Administration (NARA) - Civil Rights Cold Case Records Portal",
+      "url": "https://crcca.archives.gov/",
+      "license": "Public Domain (Federal)"
+    },
+    {
+      "name": "Riverside County Sheriff, CA - Information Services Bureau",
+      "url": "https://www.riversidesheriff.org/782/Information-Services-Bureau",
+      "license": "Government records (CPRA accessible)"
+    },
+    {
+      "name": "Riverside County District Attorney",
+      "url": "https://rivcoda.org/",
+      "license": "Mixed (government PD for DA materials, media copyright for partner content)"
+    },
+    {
+      "name": "Online Archive of California (OAC) / Calisphere",
+      "url": "https://calisphere.org/",
+      "license": "Mixed (varies by item - many PD/CC)"
+    }
+  ]
+}

@@ -1,7 +1,8 @@
 {
-  "channel": "Pilot 調查員",
+  "channel": "Pilot 調查列車",
   "title": "Esther Gonzalez 45 年冷案",
   "slug": "esther-gonzalez-45",
+  "ep": 6,
   "legalStatus": "未解 — 涉嫌人已身故；2024-11 由 Riverside County DA 公開指認，無法起訴",
   "segments": [
     {
@@ -19,9 +20,9 @@
     {
       "id": "HOST-01",
       "kind": "host",
-      "heading": "Pilot · 調查員出鏡",
+      "heading": "Pilot · 列車長出鏡",
       "hostFunction": "解說員 — 開場（背景＋帶入）",
-      "narration": "撥開迷霧，看見真相！大家好，我是 Pilot 調查員。今天的故事，是關於一個通過了測謊的男人——和一份四十五年後才開口的 DNA。一台機器替他擔保了清白；半個世紀後，另一種科學要把那個答案重新寫一次。 現在，讓我們回到一九七九年那個冬天。",
+      "narration": "各位旅客，歡迎登上 Pilot 調查列車，我是列車長。下一站，加州河濱縣——一樁等了四十五年的懸案。請坐穩，車要開了。我們，回到一九七九年。",
       "visual": [
         "host"
       ],
@@ -65,7 +66,7 @@
     {
       "id": "HOST-02",
       "kind": "host",
-      "heading": "Pilot · 調查員出鏡",
+      "heading": "Pilot · 列車長出鏡",
       "hostFunction": "解說員 — 轉場（懷疑 → 機器）",
       "narration": "一個報案的人、一個態度好辯的證人、一個和被害人家屬同校的同學。一九七九年的警察，本來，可以多問幾句。但他們選擇——讓一台機器，替他們做了這個決定。",
       "visual": [
@@ -110,13 +111,21 @@
     {
       "id": "HOST-03",
       "kind": "host",
-      "heading": "Pilot · 調查員出鏡",
+      "heading": "Pilot · 列車長出鏡",
       "hostFunction": "解說員 — 轉場（沉睡 → 重啟）",
       "narration": "四十四年。在這四十四年裡，這個家族，每天都在等。直到二〇二三年，有一群人決定——不再等下去。",
       "visual": [
         "host"
       ],
       "imagePrompt": "解說員 Pilot 全螢幕定格出鏡（brand/assets/host-reference.png）"
+    },
+    {
+      "id": "時間卡-01",
+      "kind": "timecard",
+      "dateLines": [
+        "二〇二三年",
+        "四十四年後"
+      ]
     },
     {
       "id": "07",
@@ -145,7 +154,7 @@
     {
       "id": "HOST-04",
       "kind": "host",
-      "heading": "Pilot · 調查員出鏡",
+      "heading": "Pilot · 列車長出鏡",
       "hostFunction": "解說員 — 反轉前的壓低",
       "narration": "四十五年前，一台測謊機，替這個男人擔保了清白。四十五年後， 一份從他自己屍體上採來的血液，要重新回答這個問題。這一次，回答的——不是機器，是 DNA。",
       "visual": [
@@ -203,9 +212,9 @@
     {
       "id": "HOST-結尾",
       "kind": "host",
-      "heading": "Pilot · 調查員出鏡",
+      "heading": "Pilot · 列車長出鏡",
       "hostFunction": "解說員 — 結尾",
-      "narration": "DNA 相符了。家屬說，他們終於有了閉幕感。但 Williamson 早就死了。沒有審判、沒有判決、沒有真正在法庭上展開的司法程序。所以——這算不算正義？這個問題，我想， 留給你。 我是 Pilot，我們，下一個案子見。",
+      "narration": "DNA 相符了。家屬說，他們終於有了閉幕感。但 Williamson 早就死了。沒有審判、沒有判決、沒有真正在法庭上展開的司法程序。所以——這算不算正義？這個問題，我想， 留給你。 河濱縣站，到了。有些問題，我們在這一站找到了答案；有些，只能帶往下一站，繼續問下去。 我是 Pilot，調查列車不會停。我們，下一站見。",
       "visual": [
         "host"
       ],
@@ -221,6 +230,6 @@
   "ending": {
     "question": "當一份證據遲到四十五年，它換回來的，是真相，還是只是一個閉幕的儀式？",
     "realFootage": true,
-    "credits": "感謝陪我走到這裡的你。願每一樁懸案，最後都有一個願意翻開檔案的人。Miao Channel — Pilot 調查員，下一個案子見。"
+    "credits": "感謝陪我走到這裡的你。願每一樁懸案，最後都有一個願意翻開檔案的人。Pilot 調查列車 — 下一站見。"
   }
 }
